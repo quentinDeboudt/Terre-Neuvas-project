@@ -15,11 +15,13 @@ nav{
     position: fixed;
     background-color: #FFFFFF;
     width: 100%;
+
 }
 #nav-bar{
     list-style-type: none; /* Remove bullets */
     display: flex;
-    width: 252px;
+    width: fit-content;
+
 }
 
 .link-nav-bar{
@@ -27,7 +29,12 @@ nav{
     margin-right: 10px;
     text-decoration: none;
     color: black ;
-
+}
+.link-nav-bar:hover{
+    display: flex;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #f6e6ba;
 }
 #btn-reservation{
     text-decoration: none;
@@ -37,7 +44,18 @@ nav{
     padding: 4px;
     color: black;
     background-color: #f6e6ba;
-    border: 2px solid #888785;
+    border: 2px solid #f6e6ba;
+    border-radius: 5px;
+}
+#btn-reservation:hover{
+    text-decoration: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 4px;
+    color: #000000;
+    background-color: #ffffff;
+    border: 2px solid #f6e6ba;
     border-radius: 5px;
 }
 /*############################# img #################################*/
@@ -79,10 +97,19 @@ hr{
 
     text-decoration: none;
     padding: 6px;
+    color: black;
     background-color: #f6e6ba;
-    color: #000000;
-    border: 1px solid #000000;
-    border-radius: 20px;
+    border: 2px solid #f6e6ba;
+    border-radius: 5px;
+}
+#btn-reservation-2:hover{
+
+    text-decoration: none;
+    padding: 6px;
+    color: black;
+    background-color: #ffffff;
+    border: 2px solid #f6e6ba;
+    border-radius: 5px;
 }
 #block-Info{
 
@@ -90,10 +117,18 @@ hr{
 #btn-plus-photos{
     text-decoration: none;
     padding: 6px;
+    color: black;
     background-color: #f6e6ba;
-    color: #000000;
-    border: 1px solid #000000;
-    border-radius: 20px;
+    border: 2px solid #f6e6ba;
+    border-radius: 5px;
+}
+#btn-plus-photos:hover{
+    text-decoration: none;
+    padding: 6px;
+    color: black;
+    background-color: #ffffff;
+    border: 2px solid #f6e6ba;
+    border-radius: 5px;
 }
 
 /*############################ block #2 ##################################*/
