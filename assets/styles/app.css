@@ -1,0 +1,142 @@
+
+html{
+    min-width: auto;
+}
+body {
+    background-color: white;
+    padding: 0;
+    margin: 0;
+}
+
+/*################################# Navigation #############################*/
+
+nav{
+    z-index: 10;
+    position: fixed;
+    background-color: #FFFFFF;
+    width: 100%;
+}
+#nav-bar{
+    list-style-type: none; /* Remove bullets */
+    display: flex;
+    width: 252px;
+}
+
+.link-nav-bar{
+    display: flex;
+    margin-right: 10px;
+    text-decoration: none;
+    color: black ;
+
+}
+#btn-reservation{
+    text-decoration: none;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 4px;
+    color: black;
+    background-color: #f6e6ba;
+    border: 2px solid #888785;
+    border-radius: 5px;
+}
+/*############################# img #################################*/
+
+#img-Entree-terre-neuvas{
+    width: 100%;
+}
+
+h1{
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 180px;
+    color: #FFFFFF;
+    font-size: 60px;
+    font-min-size: 60px;
+    font-max-size: 60px;
+}
+/*############################ block #1 ##################################*/
+
+#content {
+    display: flex;
+    padding: 25px;
+    font-family: cursive;
+}
+hr{
+    color: black;
+    background-color: black;
+    margin: 30px;
+    width: 5px;
+}
+#block-Detail{
+
+}
+#block-horaire{
+
+}
+#btn-reservation-2{
+
+    text-decoration: none;
+    padding: 6px;
+    background-color: #f6e6ba;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 20px;
+}
+#block-Info{
+
+}
+#btn-plus-photos{
+    text-decoration: none;
+    padding: 6px;
+    background-color: #f6e6ba;
+    color: #000000;
+    border: 1px solid #000000;
+    border-radius: 20px;
+}
+
+/*############################ block #2 ##################################*/
+
+#block-decouvertes-culinaires{
+    background-color: #f6e6ba;
+    padding: 40px;
+    display: flex;
+    height: 500px;
+}
+#img-port-erquy{
+    position: absolute;
+    height: 350px;
+    border: 2px #000000 solid;
+    margin: 30px;
+}
+#img-plats-2{
+    z-index: 8;
+    position: absolute;
+    width: 170px;
+    border: 2px #000000 solid;
+    right: 730px;
+    margin-top: 310px;
+}
+#PlusInfo{
+    position: absolute;
+    right: 70px;
+    font-family: cursive;
+    background-color: #FFFFFF;
+    margin-top: 30px;
+    padding: 20px 20px 50px 20px;
+    border: 2px solid #000000;
+    height: min-content;
+    width: 700px;
+}
+#div-btn-carte{
+    text-align: center;
+    margin-top: 50px;
+}
+#btn-carte{
+    padding: 8px;
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
+    border-radius: 0 10px;
+}
