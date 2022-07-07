@@ -15,8 +15,10 @@ nav{
     position: fixed;
     background-color: #FFFFFF;
     width: 100%;
-
+    padding: 4px;
 }
+
+
 #nav-bar{
     list-style-type: none; /* Remove bullets */
     display: flex;
@@ -29,12 +31,20 @@ nav{
     margin-right: 10px;
     text-decoration: none;
     color: black ;
+    padding: 6px 0;
+    border-top: 0.5px solid #ffffff;
+    border-bottom: 0.5px solid #ffffff;
+    transition: all 0.5s ;
 }
 .link-nav-bar:hover{
     display: flex;
     margin-right: 10px;
     text-decoration: none;
-    color: #f6e6ba;
+    color: #000000;
+    border-top: 4px solid #f6e6ba;
+    border-bottom: 4px solid #f6e6ba;
+    padding: 2px 0;
+
 }
 #btn-reservation{
     text-decoration: none;
