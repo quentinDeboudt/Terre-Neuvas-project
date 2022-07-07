@@ -1,0 +1,118 @@
+# Créé par https://www.toptal.com/developers/gitignore/api/phpstorm
+# Modifier sur https://www.toptal.com/developers/gitignore?templates=phpstorm
+
+### Tempête Php ###
+# Couvre les IDE JetBrains : IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio, WebStorm et Rider
+# Référence : https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
+
+# Trucs spécifiques à l'utilisateu
+\.idea #config perso
+.idea/**/workspace.xml
+.idée/**/tâches.xml
+.idea/**/usage.statistics.xml
+.idée/**/dictionnaires
+.idée/**/étagère
+
+# AWS Spécifique à l'utilisateur
+.idea/**/aws.xml
+
+# Fichiers générés
+.idea/**/contentModel.xml
+
+# Fichiers sensibles ou à fort taux de désabonnement
+.idea/**/dataSources/
+.idea/**/dataSources.ids
+.idea/**/dataSources.local.xml
+.idea/**/sqlDataSources.xml
+.idea/**/dynamic.xml
+.idea/**/uiDesigner.xml
+.idea/**/dbnavigator.xml
+
+#Gradle
+.idea/**/gradle.xml
+.idée/**/bibliothèques
+
+# Gradle et Maven avec importation automatique
+# Lorsque vous utilisez Gradle ou Maven avec l'importation automatique, vous devez exclure les fichiers de module,
+# puisqu'ils seront recréés et peuvent provoquer un désabonnement. Décommentez si vous utilisez
+# importation automatique.
+# .idée/artefacts
+# .idée/compilateur.xml
+# .idea/jarRepositories.xml
+# .idée/modules.xml
+# .idée/*.iml
+# .idée/modules
+# *.iml
+# *.ipr
+
+# CMake
+cmake-build-*/
+
+# Plugin Mongo Explorer
+.idea/**/mongoSettings.xml
+
+# Format de projet basé sur un fichier
+*.iws
+
+#IntelliJ
+dehors/
+
+# plugin mpeltonen/sbt-idea
+.idea_modules/
+
+# greffon JIRA
+atlassian-ide-plugin.xml
+
+# Plugin Cursive Clojure
+.idea/replstate.xml
+
+# greffon SonarLint
+.idea/sonarlint/
+
+# Plugin Crashlytics (pour Android Studio et IntelliJ)
+com_crashlytics_export_strings.xml
+crashlytics.propriétés
+crashlytics-build.propriétés
+tissu.propriétés
+
+# Rest Client basé sur l'éditeur
+.idea/httpRequests
+
+# Fichier de cache sérialisé Android studio 3.1+
+.idea/caches/build_file_checksums.ser
+
+### Correctif PhpStorm ###
+# Raison du commentaire : https://github.com/joeblau/gitignore.io/issues/186#issuecomment-215987721
+
+# *.iml
+# modules.xml
+# .idea/misc.xml
+# *.ipr
+
+# greffon Sonarlint
+# https://plugins.jetbrains.com/plugin/7973-sonarlint
+.idea/**/sonarlint/
+
+# Plug-in SonarQube
+# https://plugins.jetbrains.com/plugin/7238-sonarqube-community-plugin
+.idea/**/sonarIssues.xml
+
+# Plugin Markdown Navigator
+# https://plugins.jetbrains.com/plugin/7896-markdown-navigator-enhanced
+.idea/**/markdown-navigator.xml
+.idea/**/markdown-navigator-enh.xml
+.idea/**/markdown-navigator/
+
+# Bogue de création de fichier cache
+# Voir https://youtrack.jetbrains.com/issue/JBR-2257
+.idée/$CACHE_FILE$
+
+# plugin CodeStream
+# https://plugins.jetbrains.com/plugin/12206-codestream
+.idea/codestream.xml
+
+# Azure Toolkit pour le plug-in IntelliJ
+# https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij
+.idea/**/azureSettings.xml
+
+# Fin de https://www.toptal.com/developers/gitignore/api/phpstorm
