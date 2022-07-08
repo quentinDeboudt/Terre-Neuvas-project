@@ -12,7 +12,7 @@ body {
 nav{
     z-index: 10;
     position: fixed;
-    background-color: #FFFFFF;
+    background-color: white;
     width: 100%;
     padding: 4px;
 }
