@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ajouter{% endblock %}
+
+{% block body %}
+    <div class="Table_menu">
+
+        {{ form_start(form) }}
+        <div>
+            <div>
+                {{ form_row(form.nom, {'attr': {'placeholder': "Nom"}}) }}
+            </div>
+            <div>
+                {{ form_row(form.ingredients, {'attr': {'placeholder': "ingredients"}}) }}
+            </div>
+            <div>
+                {{ form_row(form.prix, {'attr': {'placeholder': "prix"}}) }}
+            </div>
+        </div>
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+        {{ form_end(form) }}
+
+
+
+
+        <a href="{{ path('app_menu') }}">back</a>
+
+    </div>
+{% endblock %}
