@@ -3,6 +3,35 @@
 {% block title %}Hello MenuController!{% endblock %}
 
 {% block body %}
+    <table class="Table_menu">
+
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Imgredients</th>
+                <th>Prix</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for Entree in LstEntrees %}
+                <tr>
+                    <td>{{ Entree.nom }}</td>
+                    <td>{{ Entree.ingredients }}</td>
+                    <td>{{ Entree.prix }}</td>
+                    <td>
+                        <a href="{{ path('menu_edit', {'id': Entree.id}) }}">Modifier</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        <tr>
+            <td>
+                <a href="{{ path('app_menu') }}">Ajouter</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
 
 {% endblock %}
