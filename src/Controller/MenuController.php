@@ -59,7 +59,7 @@ class MenuController extends AbstractController
         $createEntreeform->handleRequest($request);
 
         if ($createEntreeform->isSubmitted() && $createEntreeform->isValid()) {
-            $createEntreeform->add( $Entree , 'String');
+            $createEntreeform->add( $Entree, true);
 
             return $this->redirectToRoute('menu_index', [], Response::HTTP_SEE_OTHER);
         }

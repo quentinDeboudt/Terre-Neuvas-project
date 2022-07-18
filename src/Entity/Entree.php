@@ -4,6 +4,9 @@ namespace App\Entity;
 
 use App\Repository\EntreeRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Form\Extension\Core\Type\FormType;
+use Symfony\Component\Form\Extension\Validator\Constraints\Form;
+
 
 #[ORM\Entity(repositoryClass: EntreeRepository::class)]
 class Entree
