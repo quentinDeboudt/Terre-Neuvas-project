@@ -4,6 +4,19 @@
 
 {% block body %}
 
+    <div id="Header">
+
+        <div id="Date">
+            <p>Date du Jour: {{ "now"|date("d/m/Y") }}</p>
+        </div>
+
+        <div id="prenomParticipant">
+            <p>Utilisateur: {{ app.user.username ?? 'Vous n\'etes pas connecté' }}</p>
+        </div>
+    </div>
+
+
+
 {############################ Entree ###############################}
     <div style="display: flex">
         <hr style="width: 100%; height: 1px">
@@ -15,7 +28,7 @@
         <thead>
             <tr>
                 <th>Nom</th>
-                <th>Imgredients</th>
+                <th>Ingredients</th>
                 <th>Prix</th>
                 <th>Actions</th>
             </tr>
@@ -29,6 +42,7 @@
                     <td class="td">
                         <a href="{{ path('menu_edit_entree', {'id': Entree.id}) }}">Modifier</a>
                     </td>
+                    <td class="td">{{Entree.id}}</td>
                 </tr>
             {% endfor %}
         <tr>
@@ -50,7 +64,7 @@
         <thead>
         <tr>
             <th>Nom</th>
-            <th>Imgredients</th>
+            <th>Ingredients</th>
             <th>Prix</th>
             <th>Actions</th>
         </tr>
@@ -62,7 +76,7 @@
                 <td class="td">{{ Plat.ingredients }}</td>
                 <td class="td">{{ Plat.prix }}</td>
                 <td class="td">
-                    <a href="{{ path('menu_edit_entree', {'id': Plat.id}) }}">Modifier</a>
+                    <a href="{{ path('menu_edit_plat', {'id': Plat.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% endfor %}
@@ -85,7 +99,7 @@
         <thead>
         <tr>
             <th>Nom</th>
-            <th>Imgredients</th>
+            <th>Ingredients</th>
             <th>Prix</th>
             <th>Actions</th>
         </tr>
@@ -97,7 +111,7 @@
                 <td class="td">{{ Dessert.ingredients }}</td>
                 <td class="td">{{ Dessert.prix }}</td>
                 <td class="td">
-                    <a href="{{ path('menu_edit_entree', {'id': Dessert.id}) }}">Modifier</a>
+                    <a href="{{ path('menu_edit_Dessert', {'id': Dessert.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% endfor %}
@@ -121,7 +135,7 @@
         <thead>
         <tr>
             <th>Nom</th>
-            <th>Imgredients</th>
+            <th>Ingredients</th>
             <th>Prix</th>
             <th>Actions</th>
         </tr>
@@ -133,7 +147,7 @@
                 <td class="td">{{ Boisson.ingredients }}</td>
                 <td class="td">{{ Boisson.prix }}</td>
                 <td class="td">
-                    <a href="{{ path('menu_edit_entree', {'id': Boisson.id}) }}">Modifier</a>
+                    <a href="{{ path('menu_edit_Boisson', {'id': Boisson.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% endfor %}

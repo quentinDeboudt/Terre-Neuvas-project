@@ -27,7 +27,6 @@ class AppFixtures extends Fixture
         //#################### user 1 #############################
         $user = new User();
 
-
         // hash the password (based on the security.yaml config for the $user class)
         $plaintextPassword = 123;
         $hashedPassword = $this->passwordHasher->hashPassword(

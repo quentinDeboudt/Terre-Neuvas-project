@@ -10,18 +10,31 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+#[Route('/menu')]
 class EntreeController extends AbstractController
 {
-    #[Route('/entree', name: 'app_entree')]
-    public function index(): Response
+
+
+///////////////////////////////////////////////...Create...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    #[Route('/new', name: 'Entree_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, EntreeRepository $entreeRepository): Response
     {
-        return $this->render('entree/index.html.twig', [
-            'controller_name' => 'EntreeController',
+        $Entree = new Entree();
+        $createEntreeform = $this->createForm(EntreeType::class, $Entree);
+        $createEntreeform->handleRequest($request);
+
+        if ($createEntreeform->isSubmitted() && $createEntreeform->isValid()) {
+            $createEntreeform->add($request);
+            return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
+        }
+        return $this->render('entree/new.html.twig', [
+            'entree' => $Entree,
+            'Entree' => $createEntreeform->createView(),
         ]);
     }
 
 
-    /////////////////////////////////////////...Entree...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+///////////////////////////////////////////////...Update...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     #[Route('/{id}/edit', name: 'menu_edit_entree', methods: ['GET', 'POST'])]
     public function edit(Request $request, Entree $entree, EntreeRepository $entreeRepository): Response
     {
@@ -34,29 +47,20 @@ class EntreeController extends AbstractController
             return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('menu/edit.html.twig', [
+        return $this->render('entree/edit.html.twig', [
             'entree' => $entree,
-            'form' => $modifierMenuForm->createView(),
+            'Entree' => $modifierMenuForm->createView(),
         ]);
     }
 
-    #[Route('/new', name: 'Entree_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntreeRepository $entreeRepository): Response
+
+///////////////////////////////////////////////...Delete...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    #[Route('/{id}', name: 'Entree_delete', methods: ['POST'])]
+    public function delete(Request $request, Entree $entree, EntreeRepository $entreeRepository): Response
     {
-        $Entree = new Entree();
-        $createEntreeform = $this->createForm(EntreeType::class, $Entree);
-        $createEntreeform->handleRequest($request);
-
-        if ($createEntreeform->isSubmitted() && $createEntreeform->isValid()) {
-            $createEntreeform->add($request);
-
-            return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
+        if ($this->isCsrfTokenValid('delete'.$entree->getId(), $request->request->get('_token'))) {
+            $entreeRepository->remove($entree, true);
         }
-
-        return $this->render('menu/new.html.twig', [
-            'entree' => $Entree,
-            'form' => $createEntreeform->createView(),
-        ]);
+        return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
     }
-
 }

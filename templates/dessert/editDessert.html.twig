@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ajouter{% endblock %}
+
+{% block body %}
+    <div class="Table_menu">
+
+        {{ form_start(Dessert) }}
+        <div class="entry-title" style="color: #0d5470">
+            <h1>Modifier une Entree</h1>
+        </div>
+
+        <div >
+            <div >
+                {{ form_row(Dessert.nom, {'attr': {'placeholder': "Nom du dessert"}}) }}
+            </div>
+            <div >
+                {{ form_row(Dessert.ingredients) }}
+            </div>
+            <div >
+                {{ form_row(Dessert.prix) }}
+            </div>
+
+        </div>
+
+        <div>
+            <div>
+                {{ form_start(Dessert) }}
+                {{ form_widget(Dessert) }}
+                <button class="btn">{{ button_label|default('Modifier') }}</button>
+                {{ form_end(Dessert) }}
+            </div>
+            <div>
+                <a href="{{ path('app_menu') }}">back</a>
+            </div>
+        </div>
+
+
+{#        <div class="">#}
+{#            <form method="post" action="{{ path('Entree_delete', {'id': Entree.id} ) }}"#}
+{#                  onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer cette Entrée?');">#}
+
+{#                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ Entree.id) }}">#}
+{#                <button class="btn">Supprimer</button>#}
+
+{#            </form>#}
+{#        </div>#}
+    </div>
+{% endblock %}

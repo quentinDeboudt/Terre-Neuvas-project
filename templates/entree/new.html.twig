@@ -5,25 +5,26 @@
 {% block body %}
     <div class="Table_menu">
 
-        {{ form_start(form) }}
+        {{ form_start(Entree) }}
         <div>
             <div>
-                {{ form_row(form.nom, {'attr': {'placeholder': "Nom"}}) }}
+                {{ form_row(Entree.nom, {'attr': {'placeholder': "Gaspacho"}}) }}
             </div>
             <div>
-                {{ form_row(form.ingredients, {'attr': {'placeholder': "ingredients"}}) }}
+                {{ form_row(Entree.ingredients, {'attr': {'placeholder': "tomates, poivron rouge, ail ..."}}) }}
             </div>
             <div>
-                {{ form_row(form.prix, {'attr': {'placeholder': "prix"}}) }}
+                {{ form_row(Entree.prix, {'attr': {'placeholder': "10.90"}}) }}
             </div>
+
         </div>
 
         <div>
             <div>
-                {{ form_start(form) }}
-                {{ form_widget(form) }}
+                {{ form_start(Entree) }}
+                {{ form_widget(Entree) }}
                 <button class="btn">{{ button_label|default('Enregistrer') }}</button>
-                {{ form_end(form) }}
+                {{ form_end(Entree) }}
             </div>
             <div>
                 <a href="{{ path('app_menu') }}">back</a>

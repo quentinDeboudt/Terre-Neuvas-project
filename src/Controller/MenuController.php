@@ -30,27 +30,4 @@ class MenuController extends AbstractController
             'controller_name' => 'MenuController',''
         ]);
     }
-
-
-
-
-    /////////////////////////////////////////...Plats...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-
-    #[Route('/{id}/edit', name: 'menu_edit_plat', methods: ['GET', 'POST'])]
-    public function edit_plat(Request $request, Plat $plat, PlatRepository $platRepository): Response
-    {
-        $modifierMenuForm = $this->createForm(PlatType::class, $plat);
-        $modifierMenuForm->handleRequest($request);
-
-        if ($modifierMenuForm->isSubmitted() && $modifierMenuForm->isValid()) {
-            $platRepository->add($plat, true);
-
-            return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('menu/edit.html.twig', [
-            'plat' => $plat,
-            'form' => $modifierMenuForm->createView(),
-        ]);
-    }
 }
