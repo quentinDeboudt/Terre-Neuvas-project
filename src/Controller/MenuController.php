@@ -32,43 +32,6 @@ class MenuController extends AbstractController
     }
 
 
-    /////////////////////////////////////////...Entree...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    #[Route('/{id}/edit', name: 'menu_edit_entree', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Entree $entree, EntreeRepository $entreeRepository): Response
-    {
-        $modifierMenuForm = $this->createForm(EntreeType::class, $entree);
-        $modifierMenuForm->handleRequest($request);
-
-        if ($modifierMenuForm->isSubmitted() && $modifierMenuForm->isValid()) {
-            $entreeRepository->add($entree, true);
-
-            return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('menu/edit.html.twig', [
-            'entree' => $entree,
-            'form' => $modifierMenuForm->createView(),
-        ]);
-    }
-
-    #[Route('/new', name: 'Entree_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, EntreeRepository $entreeRepository): Response
-    {
-        $Entree = new Entree();
-        $createEntreeform = $this->createForm(EntreeType::class, $Entree);
-        $createEntreeform->handleRequest($request);
-
-        if ($createEntreeform->isSubmitted() && $createEntreeform->isValid()) {
-            $createEntreeform->add( $Entree, true);
-
-            return $this->redirectToRoute('menu_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->render('menu/new.html.twig', [
-            'entree' => $Entree,
-            'form' => $createEntreeform->createView(),
-        ]);
-    }
 
 
     /////////////////////////////////////////...Plats...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
