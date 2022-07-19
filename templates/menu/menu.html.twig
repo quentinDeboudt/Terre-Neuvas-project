@@ -1,30 +1,85 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello MenuController!{% endblock %}
+{% block title %}menu{% endblock %}
 
 {% block body %}
-    <table class="Table_menu">
 
+    <div id="Header">
+
+        <div id="Date">
+            <p>Date du Jour: {{ "now"|date("d/m/Y") }}</p>
+        </div>
+
+        <div id="prenomParticipant">
+            <p>Utilisateur: {{ app.user.username ?? 'Vous n\'etes pas connecté' }}</p>
+        </div>
+    </div>
+
+
+
+{############################ Entree ###############################}
+    <div style="display: flex">
+        <hr style="width: 100%; height: 1px">
+            <h2 id="title-entree">Entree:</h2>
+        <hr style="width: 100%; height: 1px">
+    </div>
+
+    <table class="Table_menu">
         <thead>
             <tr>
                 <th>Nom</th>
-                <th>Imgredients</th>
+                <th>Ingredients</th>
                 <th>Prix</th>
                 <th>Actions</th>
             </tr>
         </thead>
-
         <tbody>
             {% for Entree in LstEntrees %}
                 <tr>
-                    <td>{{ Entree.nom }}</td>
-                    <td>{{ Entree.ingredients }}</td>
-                    <td>{{ Entree.prix }}</td>
-                    <td>
-                        <a href="{{ path('menu_edit', {'id': Entree.id}) }}">Modifier</a>
+                    <td class="td">{{ Entree.nom }}</td>
+                    <td class="td">{{ Entree.ingredients }}</td>
+                    <td class="td">{{ Entree.prix }}</td>
+                    <td class="td">
+                        <a href="{{ path('menu_edit_entree', {'id': Entree.id}) }}">Modifier</a>
                     </td>
+                    <td class="td">{{Entree.id}}</td>
                 </tr>
             {% endfor %}
+        <tr>
+            <td>
+                <a href="{{ path('Entree_new') }}">Ajouter</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    {############################ Plat ###############################}
+    <div style="display: flex">
+        <hr style="width: 100%; height: 1px">
+        <h2 id="title-entree">Plats:</h2>
+        <hr style="width: 100%; height: 1px">
+    </div>
+
+    <table class="Table_menu">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Ingredients</th>
+            <th>Prix</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for Plat in LstPLats %}
+            <tr>
+                <td class="td">{{ Plat.nom }}</td>
+                <td class="td">{{ Plat.ingredients }}</td>
+                <td class="td">{{ Plat.prix }}</td>
+                <td class="td">
+                    <a href="{{ path('menu_edit_plat', {'id': Plat.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% endfor %}
         <tr>
             <td>
                 <a href="{{ path('app_menu') }}">Ajouter</a>
@@ -32,6 +87,78 @@
         </tr>
         </tbody>
     </table>
+
+    {############################ Dessert ###############################}
+    <div style="display: flex">
+        <hr style="width: 100%; height: 1px">
+        <h2 id="title-entree">Dessert:</h2>
+        <hr style="width: 100%; height: 1px">
+    </div>
+
+    <table class="Table_menu">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Ingredients</th>
+            <th>Prix</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for Dessert in LstDessert %}
+            <tr>
+                <td class="td">{{ Dessert.nom }}</td>
+                <td class="td">{{ Dessert.ingredients }}</td>
+                <td class="td">{{ Dessert.prix }}</td>
+                <td class="td">
+                    <a href="{{ path('menu_edit_Dessert', {'id': Dessert.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td>
+                <a href="{{ path('app_menu') }}">Ajouter</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    {############################ Boisson ###############################}
+    <div style="display: flex">
+        <hr style="width: 100%; height: 1px">
+        <h2 id="title-entree">Boisson:</h2>
+        <hr style="width: 100%; height: 1px">
+    </div>
+
+    <table class="Table_menu">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Ingredients</th>
+            <th>Prix</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for Boisson in LstBoisson %}
+            <tr>
+                <td class="td">{{ Boisson.nom }}</td>
+                <td class="td">{{ Boisson.ingredients }}</td>
+                <td class="td">{{ Boisson.prix }}</td>
+                <td class="td">
+                    <a href="{{ path('menu_edit_Boisson', {'id': Boisson.id}) }}">Modifier</a>
+                </td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td>
+                <a href="{{ path('app_menu') }}">Ajouter</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
 
 
 {% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ajouter{% endblock %}
+
+{% block body %}
+    <div class="Table_menu">
+
+        {{ form_start(Entree) }}
+        <div>
+            <div>
+                {{ form_row(Entree.nom, {'attr': {'placeholder': "Gaspacho"}}) }}
+            </div>
+            <div>
+                {{ form_row(Entree.ingredients, {'attr': {'placeholder': "tomates, poivron rouge, ail ..."}}) }}
+            </div>
+            <div>
+                {{ form_row(Entree.prix, {'attr': {'placeholder': "10.90"}}) }}
+            </div>
+
+        </div>
+
+        <div>
+            <div>
+                {{ form_start(Entree) }}
+                {{ form_widget(Entree) }}
+                <button class="btn">{{ button_label|default('Enregistrer') }}</button>
+                {{ form_end(Entree) }}
+            </div>
+            <div>
+                <a href="{{ path('app_menu') }}">back</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

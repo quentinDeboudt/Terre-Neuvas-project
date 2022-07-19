@@ -15,7 +15,7 @@ body {
 
 nav{
     z-index: 10;
-    position: fixed;
+    /*position: fixed;*/
     background-color: white;
     width: 100%;
     padding: 4px;
@@ -195,11 +195,27 @@ hr{
 
 
 .Table_menu{
-    border: 1px solid #5eb5e0;
+    border: 1px solid black;
     border-radius: 10px;
     margin-top: 20px;
     margin-right: auto;
     margin-left: auto;
     width: 48%;
     padding: 10px;
+    background-color: #FFFFFF;
+}
+
+th{
+    text-align: initial;
+    border-bottom: 2px solid black;
+}
+
+.td{
+    padding: 3px;
+    border-bottom: 1px solid black;
+}
+#title-entree {
+    display: table;
+    white-space: nowrap;
+    text-align: center;
 }
