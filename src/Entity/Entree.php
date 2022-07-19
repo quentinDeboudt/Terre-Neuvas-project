@@ -4,8 +4,8 @@ namespace App\Entity;
 
 use App\Repository\EntreeRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
-use Symfony\Component\Form\Extension\Validator\Constraints\Form;
+use Symfony\Component\Form\Exception;
+use Symfony\Component\Form\FormInterface;
 
 
 #[ORM\Entity(repositoryClass: EntreeRepository::class)]
@@ -65,4 +65,17 @@ class Entree
 
         return $this;
     }
+
+    public function addEntree(Entree $entree): self
+    {
+        if (!$this->Entree->contains($entree)) {
+            $this->Entree[] = $entree;
+        }
+        return $this;
+    }
+
+
+
+
+
 }

@@ -24,10 +24,10 @@ class EntreeController extends AbstractController
         $createEntreeform->handleRequest($request);
 
         if ($createEntreeform->isSubmitted() && $createEntreeform->isValid()) {
-            $createEntreeform->add($request);
+            $entreeRepository->add($Entree, true);
             return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
-        return $this->render('entree/new.html.twig', [
+        return $this->render('entree/newEntree.html.twig', [
             'entree' => $Entree,
             'Entree' => $createEntreeform->createView(),
         ]);
@@ -43,11 +43,11 @@ class EntreeController extends AbstractController
 
         if ($modifierMenuForm->isSubmitted() && $modifierMenuForm->isValid()) {
             $entreeRepository->add($entree, true);
-
+            $this->addFlash('success', 'l\'entrée à bien été modifié');
             return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('entree/edit.html.twig', [
+        return $this->render('entree/editEntree.html.twig', [
             'entree' => $entree,
             'Entree' => $modifierMenuForm->createView(),
         ]);

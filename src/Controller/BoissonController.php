@@ -14,7 +14,26 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/menu')]
 class BoissonController extends AbstractController
 {
-    /////////////////////////////////////////...Boisson...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    ///////////////////////////////////////////////...Create...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    #[Route('/new', name: 'Boisson_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, BoissonRepository $BoissonRepository): Response
+    {
+        $Boisson = new Boisson();
+        $createDessertform = $this->createForm(BoissonType::class, $Boisson);
+        $createDessertform->handleRequest($request);
+
+        if ($createDessertform->isSubmitted() && $createDessertform->isValid()) {
+            $BoissonRepository->add($Boisson, true);
+            return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
+        }
+        return $this->render('Boisson/newBoisson.html.twig', [
+            'boisson' => $Boisson,
+            'Boisson' => $createDessertform->createView(),
+        ]);
+    }
+
+
+    /////////////////////////////////////////...update...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
     #[Route('/{id}/editBoisson', name: 'menu_edit_Boisson', methods: ['GET', 'POST'])]
     public function edit_plat(Request $request, Boisson $Boisson, BoissonRepository $BoissonRepository): Response
@@ -28,7 +47,7 @@ class BoissonController extends AbstractController
             return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('plat/editBoisson.html.twig', [
+        return $this->render('Boisson/editBoisson.html.twig', [
             'boisson' => $Boisson,
             'Boisson' => $modifierMenuForm->createView(),
         ]);

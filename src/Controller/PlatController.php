@@ -13,7 +13,26 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/menu')]
 class PlatController extends AbstractController
 {
-    /////////////////////////////////////////...Plats...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    //////////////////////////////////////////////...Create...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    #[Route('/new', name: 'Plat_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, PlatRepository $PlateRepository): Response
+    {
+        $Plat = new Plat();
+        $createPlatform = $this->createForm(PlatType::class, $Plat);
+        $createPlatform->handleRequest($request);
+
+        if ($createPlatform->isSubmitted() && $createPlatform->isValid()) {
+            $PlateRepository->add($Plat, true);
+            return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
+        }
+        return $this->render('Plat/newPlat.html.twig', [
+            'plat' => $Plat,
+            'Plat' => $createPlatform->createView(),
+        ]);
+    }
+
+
+    /////////////////////////////////////////...update...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
     #[Route('/{id}/editPlat', name: 'menu_edit_plat', methods: ['GET', 'POST'])]
     public function edit_plat(Request $request, Plat $plat, PlatRepository $platRepository): Response

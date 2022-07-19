@@ -20,8 +20,9 @@ class BoissonType extends AbstractType
                     'id' => 'form-menu-Boisson-nom'
                 ]
             ])
-            ->add('ingredients' , TextType::class,[
+            ->add('ingredients' ,TextType::class,[
                 'label' => 'ingredients : ',
+                'required' => false,
                 'attr' => [
                     'class' => 'form-menu',
                     'id' => 'form-menu-Boisson-ingredients'

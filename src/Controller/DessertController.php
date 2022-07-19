@@ -14,7 +14,25 @@ use Symfony\Component\Routing\Annotation\Route;
 class DessertController extends AbstractController
 {
 
-    /////////////////////////////////////////...Dessrt...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+///////////////////////////////////////////////...Create...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    #[Route('/new', name: 'Dessert_new', methods: ['GET', 'POST'])]
+    public function new(Request $request, DessertRepository $DessertRepository): Response
+    {
+        $Dessert = new Dessert();
+        $createDessertform = $this->createForm(DessertType::class, $Dessert);
+        $DessertRepository->handleRequest($request);
+
+        if ($createDessertform->isSubmitted() && $createDessertform->isValid()) {
+            $DessertRepository->add($Dessert, true);
+            return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
+        }
+        return $this->render('Dessert/newDessert.html.twig', [
+            'dessert' => $Dessert,
+            'Dessert' => $createDessertform->createView(),
+        ]);
+    }
+
+    /////////////////////////////////////////...Update...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
     #[Route('/{id}/editDessert', name: 'menu_edit_Dessert', methods: ['GET', 'POST'])]
     public function edit_plat(Request $request, Dessert $Dessert, DessertRepository $DessertRepository): Response
@@ -28,7 +46,7 @@ class DessertController extends AbstractController
             return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
 
-        return $this->render('plat/editDessert.html.twig', [
+        return $this->render('Dessert/editDessert.html.twig', [
             'dessert' => $Dessert,
             'Dessert' => $modifierMenuForm->createView(),
         ]);
