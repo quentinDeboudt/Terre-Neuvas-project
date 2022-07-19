@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class BoissonController extends AbstractController
 {
     ///////////////////////////////////////////////...Create...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    #[Route('/new', name: 'Boisson_new', methods: ['GET', 'POST'])]
+    #[Route('/newBoisson', name: 'Boisson_new', methods: ['GET', 'POST'])]
     public function new(Request $request, BoissonRepository $BoissonRepository): Response
     {
         $Boisson = new Boisson();

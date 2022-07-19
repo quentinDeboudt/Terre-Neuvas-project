@@ -15,12 +15,12 @@ class DessertController extends AbstractController
 {
 
 ///////////////////////////////////////////////...Create...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    #[Route('/new', name: 'Dessert_new', methods: ['GET', 'POST'])]
+    #[Route('/newDessert', name: 'Dessert_new', methods: ['GET', 'POST'])]
     public function new(Request $request, DessertRepository $DessertRepository): Response
     {
         $Dessert = new Dessert();
         $createDessertform = $this->createForm(DessertType::class, $Dessert);
-        $DessertRepository->handleRequest($request);
+        $createDessertform->handleRequest($request);
 
         if ($createDessertform->isSubmitted() && $createDessertform->isValid()) {
             $DessertRepository->add($Dessert, true);

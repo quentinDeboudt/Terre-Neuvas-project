@@ -16,7 +16,7 @@ class EntreeController extends AbstractController
 
 
 ///////////////////////////////////////////////...Create...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    #[Route('/new', name: 'Entree_new', methods: ['GET', 'POST'])]
+    #[Route('/newEntree', name: 'Entree_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntreeRepository $entreeRepository): Response
     {
         $Entree = new Entree();
@@ -35,7 +35,7 @@ class EntreeController extends AbstractController
 
 
 ///////////////////////////////////////////////...Update...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    #[Route('/{id}/edit', name: 'menu_edit_entree', methods: ['GET', 'POST'])]
+    #[Route('/{id}/editEntree', name: 'menu_edit_entree', methods: ['GET', 'POST'])]
     public function edit(Request $request, Entree $entree, EntreeRepository $entreeRepository): Response
     {
         $modifierMenuForm = $this->createForm(EntreeType::class, $entree);
@@ -43,7 +43,6 @@ class EntreeController extends AbstractController
 
         if ($modifierMenuForm->isSubmitted() && $modifierMenuForm->isValid()) {
             $entreeRepository->add($entree, true);
-            $this->addFlash('success', 'l\'entrée à bien été modifié');
             return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
 

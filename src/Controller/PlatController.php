@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PlatController extends AbstractController
 {
     //////////////////////////////////////////////...Create...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    #[Route('/new', name: 'Plat_new', methods: ['GET', 'POST'])]
+    #[Route('/newPlat', name: 'Plat_new', methods: ['GET', 'POST'])]
     public function new(Request $request, PlatRepository $PlateRepository): Response
     {
         $Plat = new Plat();
