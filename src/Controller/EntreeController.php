@@ -46,6 +46,7 @@ class EntreeController extends AbstractController
             return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
 
+
         return $this->render('entree/editEntree.html.twig', [
             'entree' => $entree,
             'Entree' => $modifierMenuForm->createView(),

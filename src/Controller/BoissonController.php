@@ -52,4 +52,15 @@ class BoissonController extends AbstractController
             'Boisson' => $modifierMenuForm->createView(),
         ]);
     }
+
+    ///////////////////////////////////////////////...Delete...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    #[Route('/{id}', name: 'Boisson_delete', methods: ['POST'])]
+    public function delete(Request $request, Boisson $Boisson, BoissonRepository $BoissonRepository): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$Boisson->getId(), $request->request->get('_token'))) {
+            $BoissonRepository->remove($Boisson, true);
+        }
+        return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
+    }
+
 }

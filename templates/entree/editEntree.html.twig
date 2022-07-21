@@ -35,15 +35,14 @@
             </div>
         </div>
 
+        <div class="">
+            <form method="post" action="{{ path('Entree_delete', {'id': entree.id }) }}"
+                  onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer cette Entrée?');">
 
-{#        <div class="">#}
-{#            <form method="post" action="{{ path('Entree_delete', {'id': Entree.id} ) }}"#}
-{#                  onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer cette Entrée?');">#}
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ entree.id) }}">
+                <button class="btn">Supprimer</button>
 
-{#                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ Entree.id) }}">#}
-{#                <button class="btn">Supprimer</button>#}
-
-{#            </form>#}
-{#        </div>#}
+            </form>
+        </div>
     </div>
 {% endblock %}

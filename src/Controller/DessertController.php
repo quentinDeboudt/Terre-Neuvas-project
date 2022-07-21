@@ -51,4 +51,14 @@ class DessertController extends AbstractController
             'Dessert' => $modifierMenuForm->createView(),
         ]);
     }
+
+    ///////////////////////////////////////////////...Delete...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    #[Route('/{id}', name: 'Dessert_delete', methods: ['POST'])]
+    public function delete(Request $request, Dessert $Dessert, DessertRepository $DessertRepository): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$Dessert->getId(), $request->request->get('_token'))) {
+            $DessertRepository->remove($Dessert, true);
+        }
+        return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
+    }
 }

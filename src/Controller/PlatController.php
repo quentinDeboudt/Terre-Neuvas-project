@@ -51,4 +51,15 @@ class PlatController extends AbstractController
             'Plat' => $modifierMenuForm->createView(),
         ]);
     }
+
+    ///////////////////////////////////////////////...Delete...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+    #[Route('/{id}', name: 'Plat_delete', methods: ['POST'])]
+    public function delete(Request $request, Plat $plat, PlatRepository $PlatRepository): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$plat->getId(), $request->request->get('_token'))) {
+            $PlatRepository->remove($plat, true);
+        }
+        return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
+    }
+
 }
