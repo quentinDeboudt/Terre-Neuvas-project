@@ -35,7 +35,7 @@ class DessertController extends AbstractController
     /////////////////////////////////////////...Update...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
     #[Route('/{id}/editDessert', name: 'menu_edit_Dessert', methods: ['GET', 'POST'])]
-    public function edit_plat(Request $request, Dessert $Dessert, DessertRepository $DessertRepository): Response
+    public function edit(Request $request, Dessert $Dessert, DessertRepository $DessertRepository): Response
     {
         $modifierMenuForm = $this->createForm(DessertType::class, $Dessert);
         $modifierMenuForm->handleRequest($request);

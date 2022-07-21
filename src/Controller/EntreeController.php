@@ -56,8 +56,9 @@ class EntreeController extends AbstractController
 
 ///////////////////////////////////////////////...Delete...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     #[Route('/{id}', name: 'Entree_delete', methods: ['POST'])]
-    public function delete(Request $request, Entree $entree, EntreeRepository $entreeRepository): Response
+    public function Delete(Request $request, Entree $entree, EntreeRepository $entreeRepository): Response
     {
+
         if ($this->isCsrfTokenValid('delete'.$entree->getId(), $request->request->get('_token'))) {
             $entreeRepository->remove($entree, true);
         }

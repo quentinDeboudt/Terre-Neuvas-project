@@ -35,7 +35,7 @@ class PlatController extends AbstractController
     /////////////////////////////////////////...update...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
     #[Route('/{id}/editPlat', name: 'menu_edit_plat', methods: ['GET', 'POST'])]
-    public function edit_plat(Request $request, Plat $plat, PlatRepository $platRepository): Response
+    public function edit(Request $request, Plat $plat, PlatRepository $platRepository): Response
     {
         $modifierMenuForm = $this->createForm(PlatType::class, $plat);
         $modifierMenuForm->handleRequest($request);

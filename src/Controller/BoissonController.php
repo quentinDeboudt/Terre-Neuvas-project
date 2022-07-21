@@ -21,16 +21,16 @@ class BoissonController extends AbstractController
     public function new(Request $request, BoissonRepository $BoissonRepository): Response
     {
         $Boisson = new Boisson();
-        $createDessertform = $this->createForm(BoissonType::class, $Boisson);
-        $createDessertform->handleRequest($request);
+        $createBoissonform = $this->createForm(BoissonType::class, $Boisson);
+        $createBoissonform->handleRequest($request);
 
-        if ($createDessertform->isSubmitted() && $createDessertform->isValid()) {
+        if ($createBoissonform->isSubmitted() && $createBoissonform->isValid()) {
             $BoissonRepository->add($Boisson, true);
             return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
         return $this->render('Boisson/newBoisson.html.twig', [
             'boisson' => $Boisson,
-            'Boisson' => $createDessertform->createView(),
+            'Boisson' => $createBoissonform->createView(),
         ]);
     }
 
@@ -38,19 +38,19 @@ class BoissonController extends AbstractController
     /////////////////////////////////////////...update...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
     #[Route('/{id}/editBoisson', name: 'menu_edit_Boisson', methods: ['GET', 'POST'])]
-    public function edit_plat(Request $request, Boisson $Boisson, BoissonRepository $BoissonRepository): Response
+    public function edit(Request $request, Boisson $boisson, BoissonRepository $boissonRepository): Response
     {
-        $modifierMenuForm = $this->createForm(BoissonType::class, $Boisson);
+        $modifierMenuForm = $this->createForm(BoissonType::class, $boisson);
         $modifierMenuForm->handleRequest($request);
 
         if ($modifierMenuForm->isSubmitted() && $modifierMenuForm->isValid()) {
-            $BoissonRepository->add($Boisson, true);
+            $boissonRepository->add($boisson, true);
 
             return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
 
         return $this->render('Boisson/editBoisson.html.twig', [
-            'boisson' => $Boisson,
+            'boisson' => $boisson,
             'Boisson' => $modifierMenuForm->createView(),
         ]);
     }
