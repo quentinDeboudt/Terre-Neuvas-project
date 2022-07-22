@@ -53,7 +53,7 @@ class PlatController extends AbstractController
     }
 
     ///////////////////////////////////////////////...Delete...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    #[Route('/{id}', name: 'Plat_delete', methods: ['POST'])]
+    #[Route('/Delete/{id}', name: 'Plat_delete', methods: ['POST'])]
     public function delete(Request $request, Plat $plat, PlatRepository $PlatRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$plat->getId(), $request->request->get('_token'))) {

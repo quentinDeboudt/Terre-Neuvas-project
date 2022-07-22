@@ -55,7 +55,7 @@ class EntreeController extends AbstractController
 
 
 ///////////////////////////////////////////////...Delete...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    #[Route('/{id}', name: 'Entree_delete', methods: ['POST'])]
+    #[Route('/Delete/{id}', name: 'Entree_delete', methods: ['POST'])]
     public function Delete(Request $request, Entree $entree, EntreeRepository $entreeRepository): Response
     {
 

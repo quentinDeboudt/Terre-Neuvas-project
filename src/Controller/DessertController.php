@@ -53,7 +53,7 @@ class DessertController extends AbstractController
     }
 
     ///////////////////////////////////////////////...Delete...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    #[Route('/{id}', name: 'Dessert_delete', methods: ['POST'])]
+    #[Route('/Delete/{id}', name: 'Dessert_delete', methods: ['POST'])]
     public function delete(Request $request, Dessert $Dessert, DessertRepository $DessertRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$Dessert->getId(), $request->request->get('_token'))) {

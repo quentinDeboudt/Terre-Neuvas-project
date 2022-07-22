@@ -34,8 +34,6 @@
                 <a href="{{ path('app_menu') }}">back</a>
             </div>
         </div>
-
-
         <div class="">
             <form method="post" action="{{ path('Boisson_delete', {'id': boisson.id} ) }}"
                   onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer cette Boisson?');">
@@ -45,5 +43,6 @@
 
             </form>
         </div>
-    </div>
+
+
 {% endblock %}
