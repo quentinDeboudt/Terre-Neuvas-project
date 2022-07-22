@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}menu{% endblock %}
+
+{% block body %}
+
+
+    {############################ Entree ###############################}
+    <div >
+        <h2 id="title-entree">Entree:</h2>
+    </div>
+    {% for Entree in LstEntrees %}
+        <section class="lstMenu">
+            <div class="sectionNom">{{ Entree.nom }}</div>
+            <div class="sectionIngredients">{{ Entree.ingredients }}</div>
+            <div class="sectionPrix">{{ Entree.prix }}</div>
+        </section>
+    {% endfor %}
+
+    {############################ Plat ###############################}
+    <div >
+        <h2 id="title-entree">Plat:</h2>
+    </div>
+    {% for Plat in LstPLats %}
+        <section class="lstMenu">
+            <div class="sectionNom">{{ Plat.nom }}</div>
+            <div class="sectionIngredients">{{ Plat.ingredients }}</div>
+            <div class="sectionPrix">{{ Plat.prix }}</div>
+        </section>
+    {% endfor %}
+
+    {############################ Dessert ###############################}
+    <div >
+        <h2 id="title-entree">Dessert:</h2>
+    </div>
+    {% for Dessert in LstDessert %}
+        <section class="lstMenu">
+            <div class="sectionNom">{{ Dessert.nom }}</div>
+            <div class="sectionIngredients">{{ Dessert.ingredients }}</div>
+            <div class="sectionPrix">{{ Dessert.prix }}</div>
+        </section>
+    {% endfor %}
+
+
+    {############################ Boisson ###############################}
+    <div >
+        <h2 id="title-entree">Boisson:</h2>
+    </div>
+    {% for Boisson in LstBoisson %}
+        <section class="lstMenu">
+            <div class="sectionNom">{{ Boisson.nom }}</div>
+            <div class="sectionIngredients">{{ Boisson.ingredients }}</div>
+            <div class="sectionPrix">{{ Boisson.prix }}</div>
+        </section>
+    {% endfor %}
+
+{% endblock %}
