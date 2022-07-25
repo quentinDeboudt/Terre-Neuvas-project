@@ -30,6 +30,7 @@
                 <th>Nom</th>
                 <th>Ingredients</th>
                 <th>Prix</th>
+                <th>images</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -40,9 +41,14 @@
                     <td class="td">{{ Entree.ingredients }}</td>
                     <td class="td">{{ Entree.prix }}</td>
                     <td class="td">
+                        {%if Entree.brochureFilename%}
+                            <img src="{{ asset('uploads/brochures/' ~ Entree.brochureFilename())}}" alt="Image" class=" image-admin" >
+                        {%else%}
+                            <img src="{{ asset('img/default-image.png')}}" alt="Image" class="td"  >
+                        {%endif%}</td>
+                    <td class="td">
                         <a href="{{ path('menu_edit_entree', {'id': Entree.id}) }}">Modifier</a>
                     </td>
-                    <td class="td">{{Entree.id}}</td>
                 </tr>
             {% endfor %}
         <tr>

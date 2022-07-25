@@ -9,13 +9,26 @@
     <div >
         <h2 id="title-entree">Entree:</h2>
     </div>
-    {% for Entree in LstEntrees %}
-        <section class="lstMenu">
-            <div class="sectionNom">{{ Entree.nom }}</div>
-            <div class="sectionIngredients">{{ Entree.ingredients }}</div>
-            <div class="sectionPrix">{{ Entree.prix }}</div>
-        </section>
-    {% endfor %}
+
+    <div class="box-Parents">
+        {% for Entree in LstEntrees %}
+            <section class="lstMenu">
+                <div class="info">
+                    <div class="sectionNom">{{ Entree.nom }}</div>
+                    <div class="sectionIngredients">{{ Entree.ingredients }}</div>
+                    <div class="sectionPrix">{{ Entree.prix }}</div>
+                </div>
+                <div class="image">
+                    {%if Entree.brochureFilename%}
+                        <img src="{{ asset('uploads/brochures/' ~ Entree.brochureFilename())}}" alt="Image" class="sectionimg">
+                    {%else%}
+                        <img src="{{ asset('img/default-image.png')}}" alt=""  class="sectionimg">
+                    {%endif%}
+                </div>
+            </section>
+        {% endfor %}
+    </div>
+
 
     {############################ Plat ###############################}
     <div >

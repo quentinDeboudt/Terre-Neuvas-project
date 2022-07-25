@@ -4,13 +4,20 @@
 
 {% block body %}
     <div class="Table_menu">
-
         {{ form_start(Entree) }}
         <div class="entry-title" style="color: #0d5470">
-            <h1>Modifier une Entree</h1>
+            <h1>Modifier une Entree </h1>
         </div>
 
         <div >
+            <div class="image-menu">
+                {%if Entree.brochureFilename%}
+                    <img src="{{ asset('uploads/brochures/' ~ Entree.brochureFilename())}}" alt="Image">
+                {%else%}
+                    <img src="{{ asset('img/default-image.png')}}" alt="Image" >
+                {%endif%}
+            </div>
+
             <div >
                 {{ form_row(Entree.nom, {'attr': {'placeholder': "Nom de l'entrée"}}) }}
             </div>

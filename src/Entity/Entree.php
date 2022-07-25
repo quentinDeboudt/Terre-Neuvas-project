@@ -25,6 +25,9 @@ class Entree
     #[ORM\Column(type: 'float')]
     private $prix;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $brochureFilename;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -71,6 +74,23 @@ class Entree
         if (!$this->Entree->contains($entree)) {
             $this->Entree[] = $entree;
         }
+        return $this;
+    }
+
+//    /**
+//     * @ORM\Column(type="string")
+//     */
+//    private $brochureFilename;
+
+    public function getBrochureFilename()
+    {
+        return $this->brochureFilename;
+    }
+
+    public function setBrochureFilename($brochureFilename)
+    {
+        $this->brochureFilename = $brochureFilename;
+
         return $this;
     }
 
