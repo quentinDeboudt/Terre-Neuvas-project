@@ -217,26 +217,44 @@ th{
     white-space: nowrap;
     text-align: center;
 }
+.image-admin{
+    width: 100px !important;
+    border-radius: 20px;
+}
 
 /*########################################################################*/
 /*############################## Menu / User #############################*/
-
 body{
     background-color: #DDF7F8;
 }
+.box-Parents{
+    padding-right: 20%;
+    padding-left: 20%;
+}
 section{
-    background-color: #9AB8BA;
     border: solid 1px black;
-    border-radius: 10px;
-    margin-right: auto;
-    margin-left: auto;
-    margin-top: 10px;
-    width: fit-content;
-    min-width: 50% ;
-    max-height: 99px;
-    padding: 5px;
+    margin: 5px;
+    border-radius: 20px;
+}
+.info{
+    border: solid 1px green;
+    margin: 5px;
+    border-radius: 20px;
+
+}
+.image{
+    border: solid 1px blue;
+    margin: 5px;
+    border-radius: 20px;
 }
 
+
+
+.sectionimg{
+    width: 200px;
+    border-radius: 20px;
+
+}
 .sectionNom{
     font-size: 40px;
     font-family: Gabriola, serif;
