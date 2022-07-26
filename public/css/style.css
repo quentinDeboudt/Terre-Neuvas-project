@@ -2,7 +2,7 @@ html{
     min-width: auto;
 }
 body {
-    background-color: #FFFFFF;
+    background-color: #DDF7F8;
     padding: 0;
     margin: 0;
 }
@@ -10,9 +10,8 @@ body {
 #login-page{
     color: black;
 }
-
-/*################################# Navigation #############################*/
-
+/*########################################################################*/
+/*######################### Header | Nav-Bar #############################*/
 nav{
     z-index: 10;
     /*position: fixed;*/
@@ -20,15 +19,11 @@ nav{
     width: 100%;
     padding: 4px;
 }
-
-
 #nav-bar{
     list-style-type: none; /* Remove bullets */
     display: flex;
     width: fit-content;
-
 }
-
 .link-nav-bar{
     display: flex;
     margin-right: 10px;
@@ -47,31 +42,10 @@ nav{
     border-top: 4px solid #f6e6ba;
     border-bottom: 4px solid #f6e6ba;
     padding: 2px 0;
+}
 
-}
-#btn-reservation{
-    text-decoration: none;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    padding: 4px;
-    color: black;
-    background-color: #f6e6ba;
-    border: 2px solid #f6e6ba;
-    border-radius: 5px;
-}
-#btn-reservation:hover{
-    text-decoration: none;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    padding: 4px;
-    color: #000000;
-    background-color: #ffffff;
-    border: 2px solid #f6e6ba;
-    border-radius: 5px;
-}
-/*############################# img #################################*/
+/*########################################################################*/
+/*########################### Header image ###############################*/
 
 #img-Entree-terre-neuvas{
     width: 100%;
@@ -87,6 +61,7 @@ h1{
     font-min-size: 60px;
     font-max-size: 60px;
 }
+/*########################################################################*/
 /*############################ block #1 ##################################*/
 
 #content {
@@ -94,38 +69,11 @@ h1{
     padding: 25px;
     font-family: cursive;
 }
-hr{
-    color: black;
-    background-color: black;
-    margin: 30px;
-    width: 5px;
-}
 #block-Detail{
-
 }
 #block-horaire{
-
-}
-#btn-reservation-2{
-
-    text-decoration: none;
-    padding: 6px;
-    color: black;
-    background-color: #f6e6ba;
-    border: 2px solid #f6e6ba;
-    border-radius: 5px;
-}
-#btn-reservation-2:hover{
-
-    text-decoration: none;
-    padding: 6px;
-    color: black;
-    background-color: #ffffff;
-    border: 2px solid #f6e6ba;
-    border-radius: 5px;
 }
 #block-Info{
-
 }
 #btn-plus-photos{
     text-decoration: none;
@@ -144,6 +92,7 @@ hr{
     border-radius: 5px;
 }
 
+/*########################################################################*/
 /*############################ block #2 ##################################*/
 #img-menu{
     width: 100%;
@@ -187,91 +136,134 @@ hr{
     border-radius: 0 10px;
 }
 
-
-/*########################################################################*/
-/*############################### Menu / admin ###########################*/
-
-
-.Table_menu{
-    border: 1px solid black;
-    border-radius: 10px;
-    margin-top: 20px;
-    margin-right: auto;
-    margin-left: auto;
-    width: 48%;
-    padding: 10px;
-    background-color: #FFFFFF;
-}
-
-th{
-    text-align: initial;
-    border-bottom: 2px solid black;
-}
-
-.td{
-    padding: 3px;
-    border-bottom: 1px solid black;
-}
-#title-entree {
-    display: table;
-    white-space: nowrap;
-    text-align: center;
-}
-.image-admin{
-    width: 100px !important;
-    border-radius: 20px;
-}
-
 /*########################################################################*/
 /*############################## Menu / User #############################*/
-body{
-    background-color: #DDF7F8;
-}
+
 .box-Parents{
     padding-right: 20%;
     padding-left: 20%;
 }
+
+/***************************************************************/
+/**************************** item *****************************/
 section{
-    border: solid 1px black;
-    margin: 5px;
+    background-color: #FFFFFF;
+    margin-bottom: 35px;
     border-radius: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    box-shadow: 5px 5px 10px grey;
+}
+.btn-modifier{
+    width: 0;
+    height: 128px;
+    transition-duration: 500ms;
+    background-color: #FFFFFF;
+    border-radius: 10px 0 0 10px;
+    box-shadow: -5px 0px 5px grey;
+}
+section:hover .btn-modifier{
+    width: 30px;
+    margin-left: -30px;
+}
+section:hover .text-modifier{
+    opacity: 100%;
+    margin: 5px;
+}
+.text-modifier{
+    transition-duration: 500ms;
+    opacity: 0%;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    margin: 6px;
+    writing-mode: vertical-lr;
+}
+.text-modifier:hover{
+    color: #5eb5e0;
 }
 .info{
-    border: solid 1px green;
-    margin: 5px;
-    border-radius: 20px;
-
+    margin-left: 4px;
+    flex-grow: 5;
 }
-.image{
-    border: solid 1px blue;
-    margin: 5px;
-    border-radius: 20px;
-}
-
-
-
+/***************************************************************/
+/*********************** In Section (item)**********************/
 .sectionimg{
+    margin: 2px;
     width: 200px;
     border-radius: 20px;
-
 }
 .sectionNom{
-    font-size: 40px;
+    font-size: 50px;
     font-family: Gabriola, serif;
 }
 
 .sectionIngredients{
-    font-size: 25px;
+    font-size: 20px;
     font-family: serif;
-
 }
 
 .sectionPrix{
-    position: relative;
-    bottom: 50px;
-    margin: -4px;
     font-size: 30px;
     display: flex;
     flex-direction: row-reverse;
     font-family: Gabriola, serif;
+    margin-right: 4px;
 }
+
+
+/***************************************************************/
+/************************** btn plus ***************************/
+.btn-plus{
+    width: 40px;
+    border-radius: 100%;
+    box-shadow: 3px 3px 5px grey;
+    margin: 6px;
+}
+.btn-plus:hover{
+    width: 43px;
+    margin: 1.5px;
+}
+.box-Parents-btn-plus{
+    padding-right: 48%;
+    padding-left: 48%;
+}
+
+/***************************************************************/
+/************************* Title Menu **************************/
+
+.title-menu{
+    display: flex;
+}
+.title-menu hr{
+    width: 90%;
+    color: black;
+    height: 1px;
+}
+div.title-menu h2{
+    margin-top: 0;
+    margin-bottom: 30px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+
+.Message-Menu-Vide{
+    background-color: #FFFFFF;
+    margin-bottom: 35px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 5px 10px grey;
+}
+
+
+
+
+
+
+
+
+

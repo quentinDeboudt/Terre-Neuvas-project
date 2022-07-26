@@ -25,8 +25,8 @@ class MenuController extends AbstractController
         return $this->render('menu/menu.html.twig', [
             'LstEntrees' => $entreeRepository->findAll(),
             'LstPLats' => $platRepository->findAll(),
-            'LstDessert' => $dessertRepository->findAll(),
-            'LstBoisson' => $boissonRepository->findAll(),
+            'LstDesserts' => $dessertRepository->findAll(),
+            'LstBoissons' => $boissonRepository->findAll(),
             'controller_name' => 'MenuController',''
         ]);
     }

@@ -18,150 +18,150 @@
 
 
 {############################ Entree ###############################}
-    <div style="display: flex">
-        <hr style="width: 100%; height: 1px">
-            <h2 id="title-entree">Entree:</h2>
-        <hr style="width: 100%; height: 1px">
+    <div class="title-menu">
+        <hr>
+        <h2 id="title-entree">Entree:</h2>
+        <hr>
     </div>
 
-    <table class="Table_menu">
-        <thead>
-            <tr>
-                <th>Nom</th>
-                <th>Ingredients</th>
-                <th>Prix</th>
-                <th>images</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for Entree in LstEntrees %}
-                <tr>
-                    <td class="td">{{ Entree.nom }}</td>
-                    <td class="td">{{ Entree.ingredients }}</td>
-                    <td class="td">{{ Entree.prix }}</td>
-                    <td class="td">
-                        {%if Entree.brochureFilename%}
-                            <img src="{{ asset('uploads/brochures/' ~ Entree.brochureFilename())}}" alt="Image" class=" image-admin" >
-                        {%else%}
-                            <img src="{{ asset('img/default-image.png')}}" alt="Image" class="td"  >
-                        {%endif%}</td>
-                    <td class="td">
-                        <a href="{{ path('menu_edit_entree', {'id': Entree.id}) }}">Modifier</a>
-                    </td>
-                </tr>
-            {% endfor %}
-        <tr>
-            <td>
-                <a href="{{ path('Entree_new') }}">Ajouter</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <div class="box-Parents">
+        {% for Entree in LstEntrees %}
+
+            <section class="lstMenu">
+
+                <div class="info">
+                    <div class="sectionNom">{{ Entree.nom }}</div>
+                    <div class="sectionIngredients">{{ Entree.ingredients }}</div>
+                    <div class="sectionPrix">{{ Entree.prix }}</div>
+                </div>
+                <div class="image">
+                    {%if Entree.brochureFilename%}
+                        <img src="{{ asset('uploads/brochures/' ~ Entree.brochureFilename())}}" alt="Image" class="sectionimg">
+                    {%else%}
+                        <img src="{{ asset('img/default-image.png')}}" alt=""  class="sectionimg">
+                    {%endif%}
+                </div>
+                <div class="btn-modifier"><a class="text-modifier" href="{{ path('menu_edit_entree', {'id': Entree.id}) }}">Modifier</a></div>
+            </section>
+        {% endfor %}
+        {% if LstEntrees is empty %}
+            <div class="Message-Menu-Vide">
+                <p>Il n'y à pas encore d'entrée</p>
+            </div>
+        {% endif %}
+    </div>
+    <div class="box-Parents-btn-plus">
+        <a  href="{{ path('Entree_new') }}"><img class="btn-plus" src="{{ asset('img/btnPlus.png') }}" rel="{{ path('Entree_new') }}" ></a>
+    </div>
+
 
     {############################ Plat ###############################}
-    <div style="display: flex">
-        <hr style="width: 100%; height: 1px">
-        <h2 id="title-entree">Plats:</h2>
-        <hr style="width: 100%; height: 1px">
+    <div class="title-menu">
+        <hr>
+        <h2 id="title-entree">Plat:</h2>
+        <hr>
     </div>
 
-    <table class="Table_menu">
-        <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Ingredients</th>
-            <th>Prix</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="box-Parents">
         {% for Plat in LstPLats %}
-            <tr>
-                <td class="td">{{ Plat.nom }}</td>
-                <td class="td">{{ Plat.ingredients }}</td>
-                <td class="td">{{ Plat.prix }}</td>
-                <td class="td">
-                    <a href="{{ path('menu_edit_plat', {'id': Plat.id}) }}">Modifier</a>
-                </td>
-            </tr>
-        {% endfor %}
-        <tr>
-            <td>
-                <a href="{{ path('Plat_new') }}">Ajouter</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
 
+            <section class="lstMenu">
+
+                <div class="info">
+                    <div class="sectionNom">{{ Plat.nom }}</div>
+                    <div class="sectionIngredients">{{ Plat.ingredients }}</div>
+                    <div class="sectionPrix">{{ Plat.prix }}</div>
+                </div>
+                <div class="image">
+                    {%if Plat.brochureFilename%}
+                        <img src="{{ asset('uploads/brochures/' ~ Plat.brochureFilename())}}" alt="Image" class="sectionimg">
+                    {%else%}
+                        <img src="{{ asset('img/default-image.png')}}" alt=""  class="sectionimg">
+                    {%endif%}
+                </div>
+                <div class="btn-modifier"><a class="text-modifier" href="{{ path('menu_edit_entree', {'id': Plat.id}) }}">Modifier</a></div>
+            </section>
+        {% endfor %}
+        {% if LstPLats is empty %}
+            <div class="Message-Menu-Vide">
+                <p>Il n'y à pas encore de plat</p>
+            </div>
+        {% endif %}
+    </div>
+    <div class="box-Parents-btn-plus">
+        <a  href="{{ path('Entree_new') }}"><img class="btn-plus" src="{{ asset('img/btnPlus.png') }}" rel="{{ path('Entree_new') }}" ></a>
+    </div>
     {############################ Dessert ###############################}
-    <div style="display: flex">
-        <hr style="width: 100%; height: 1px">
-        <h2 id="title-entree">Dessert:</h2>
-        <hr style="width: 100%; height: 1px">
+    <div class="title-menu">
+        <hr>
+        <h2>Dessert:</h2>
+        <hr>
     </div>
 
-    <table class="Table_menu">
-        <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Ingredients</th>
-            <th>Prix</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for Dessert in LstDessert %}
-            <tr>
-                <td class="td">{{ Dessert.nom }}</td>
-                <td class="td">{{ Dessert.ingredients }}</td>
-                <td class="td">{{ Dessert.prix }}</td>
-                <td class="td">
-                    <a href="{{ path('menu_edit_Dessert', {'id': Dessert.id}) }}">Modifier</a>
-                </td>
-            </tr>
+    <div class="box-Parents">
+        {% for Dessert in LstDesserts %}
+
+            <section class="lstMenu">
+
+                <div class="info">
+                    <div class="sectionNom">{{ Dessert.nom }}</div>
+                    <div class="sectionIngredients">{{ Dessert.ingredients }}</div>
+                    <div class="sectionPrix">{{ Dessert.prix }}</div>
+                </div>
+                <div class="image">
+                    {%if Dessert.brochureFilename%}
+                        <img src="{{ asset('uploads/brochures/' ~ Dessert.brochureFilename())}}" alt="Image" class="sectionimg">
+                    {%else%}
+                        <img src="{{ asset('img/default-image.png')}}" alt=""  class="sectionimg">
+                    {%endif%}
+                </div>
+                <div class="btn-modifier"><a class="text-modifier" href="{{ path('menu_edit_entree', {'id': Dessert.id}) }}">Modifier</a></div>
+            </section>
         {% endfor %}
-        <tr>
-            <td>
-                <a href="{{ path('Dessert_new') }}">Ajouter</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+        {% if LstDesserts is empty %}
+            <div class="Message-Menu-Vide">
+                <p>Il n'y à pas encore de Dessert</p>
+            </div>
+        {% endif %}
+    </div>
 
-
+    <div class="box-Parents-btn-plus">
+        <a  href="{{ path('Entree_new') }}"><img class="btn-plus" src="{{ asset('img/btnPlus.png') }}" rel="{{ path('Entree_new') }}" ></a>
+    </div>
     {############################ Boisson ###############################}
-    <div style="display: flex">
-        <hr style="width: 100%; height: 1px">
+    <div class="title-menu">
+        <hr>
         <h2 id="title-entree">Boisson:</h2>
-        <hr style="width: 100%; height: 1px">
+        <hr>
     </div>
 
-    <table class="Table_menu">
-        <thead>
-        <tr>
-            <th>Nom</th>
-            <th>Ingredients</th>
-            <th>Prix</th>
-            <th>Actions</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for Boisson in LstBoisson %}
-            <tr>
-                <td class="td">{{ Boisson.nom }}</td>
-                <td class="td">{{ Boisson.ingredients }}</td>
-                <td class="td">{{ Boisson.prix }}</td>
-                <td class="td">
-                    <a href="{{ path('menu_edit_Boisson', {'id': Boisson.id}) }}">Modifier</a>
-                </td>
-            </tr>
+    <div class="box-Parents">
+        {% for Boisson in LstBoissons %}
+
+            <section class="lstMenu">
+
+                <div class="info">
+                    <div class="sectionNom">{{ Boisson.nom }}</div>
+                    <div class="sectionIngredients">{{ Boisson.ingredients }}</div>
+                    <div class="sectionPrix">{{ Boisson.prix }}</div>
+                </div>
+                <div class="image">
+                    {%if Boisson.brochureFilename%}
+                        <img src="{{ asset('uploads/brochures/' ~ Boisson.brochureFilename())}}" alt="Image" class="sectionimg">
+                    {%else%}
+                        <img src="{{ asset('img/default-image.png')}}" alt=""  class="sectionimg">
+                    {%endif%}
+                </div>
+                <div class="btn-modifier"><a class="text-modifier" href="{{ path('menu_edit_entree', {'id': Boisson.id}) }}">Modifier</a></div>
+            </section>
         {% endfor %}
-        <tr>
-            <td>
-                <a href="{{ path('Boisson_new') }}">Ajouter</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+        {% if LstBoissons is empty %}
+            <div class="Message-Menu-Vide">
+                <p>Il n'y à pas encore de Boisson</p>
+            </div>
+        {% endif %}
+    </div>
+    <div class="box-Parents-btn-plus">
+        <a  href="{{ path('Entree_new') }}"><img class="btn-plus" src="{{ asset('img/btnPlus.png') }}" rel="{{ path('Entree_new') }}" ></a>
+    </div>
 {% endblock %}

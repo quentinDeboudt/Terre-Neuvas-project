@@ -18,8 +18,8 @@ class AfficherMenuController extends AbstractController
         return $this->render('afficher_menu/afficherMenu.html.twig', [
             'LstEntrees' => $entreeRepository->findAll(),
             'LstPLats' => $platRepository->findAll(),
-            'LstDessert' => $dessertRepository->findAll(),
-            'LstBoisson' => $boissonRepository->findAll(),
+            'LstDesserts' => $dessertRepository->findAll(),
+            'LstBoissons' => $boissonRepository->findAll(),
             'controller_name' => 'MenuController',''
         ]);
     }
