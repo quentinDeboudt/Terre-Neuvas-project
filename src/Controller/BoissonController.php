@@ -69,8 +69,9 @@ class BoissonController extends AbstractController
         }
 
         $brochure =$boisson->getBrochureFilename();
-
+        $ID = $boisson->getId();
         return $this->render('Boisson/editBoisson.html.twig', [
+            'ID'=>$ID,
             'brochure'=>$brochure,
             'boisson' => $boisson,
             'Boisson' => $modifierBoissonForm->createView(),

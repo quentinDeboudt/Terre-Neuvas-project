@@ -3,53 +3,55 @@
 {% block title %}Modifier-Plat{% endblock %}
 
 {% block body %}
-    <div class="Table_menu">
-        {{ form_start(Plat) }}
+    <div class="Box-title-modifier">
+        <h3>Modifier une Plat </h3>
+    </div>
 
-        <div class="entry-title" style="color: #0d5470">
-            <h1>Modifier un pat</h1>
-        </div>
-
+    <div class="box">
         <div >
-            <div class="image-menu">
+            {{ form_start(Plat) }}
+
+            <div class="image">
                 {%if brochure%}
-                    <img src="{{ asset('uploads/brochures/' ~ brochure)}}" alt="Image">
+                    <img src="{{ asset('uploads/brochures/' ~ brochure)}}" alt="Image" class="sectionimg">
                 {%else%}
-                    <img src="{{ asset('img/default-image.png')}}" alt="Image" >
+                    <img src="{{ asset('img/default-image.png')}}" alt="Image" class="sectionimg" >
                 {%endif%}
             </div>
-            <div >
-                {{ form_row(Plat.nom, {'attr': {'placeholder': "Nom du Plat"}}) }}
-            </div>
-            <div >
-                {{ form_row(Plat.ingredients) }}
-            </div>
-            <div >
-                {{ form_row(Plat.prix) }}
+
+            <div class="input">
+                <div >
+                    {{ form_row(Plat.nom, {'attr': {'placeholder': "Nom de l'entrée"}}) }}
+                </div>
+                <div >
+                    {{ form_row(Plat.ingredients) }}
+                </div>
+                <div >
+                    {{ form_row(Plat.prix) }}
+                </div>
+                <div >
+                    {{ form_row(Plat.brochure) }}
+                </div>
             </div>
 
         </div>
 
-        <div>
+        <div class="allBtn">
             <div>
-                {{ form_start(Plat) }}
-                {{ form_widget(Plat) }}
-                <button class="btn">{{ button_label|default('Modifier') }}</button>
-                {{ form_end(Plat) }}
+                <div>
+                    {{ form_start(Plat) }}
+                    <button class="btn-valider-modifier">{{ button_label|default('Modifier') }}</button>
+                    {{ form_end(Plat) }}
+                </div>
             </div>
             <div>
-                <a href="{{ path('app_menu') }}">back</a>
+                <a class="btn-back" href="{{ path('app_menu') }}">back</a>
             </div>
-        </div>
 
-
-        <div class="">
-            <form method="post" action="{{ path('Plat_delete', {'id': plat.id} ) }}"
-                  onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer ce plat?');">
-
-                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ plat.id) }}">
-                <button class="btn">Supprimer</button>
-
+            <form method="post" action="{{ path('Plat_delete', {'id': ID }) }}"
+                  onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer ce Plat?');">
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ ID) }}">
+                <button class="btn-supprimer">Supprimer</button>
             </form>
         </div>
     </div>

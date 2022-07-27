@@ -47,7 +47,7 @@ nav{
 /*########################################################################*/
 /*########################### Header image ###############################*/
 
-#img-Entree-terre-neuvas{
+#img-Restaurants{
     width: 100%;
 }
 
@@ -219,11 +219,11 @@ section:hover .text-modifier{
     width: 40px;
     border-radius: 100%;
     box-shadow: 3px 3px 5px grey;
-    margin: 6px;
+    margin-bottom: 60px;
 }
 .btn-plus:hover{
     width: 43px;
-    margin: 1.5px;
+    margin-bottom: 57px;
 }
 .box-Parents-btn-plus{
     padding-right: 48%;
@@ -247,8 +247,6 @@ div.title-menu h2{
     margin-right: 5px;
     margin-left: 5px;
 }
-
-
 .Message-Menu-Vide{
     background-color: #FFFFFF;
     margin-bottom: 35px;
@@ -259,11 +257,92 @@ div.title-menu h2{
     box-shadow: 5px 5px 10px grey;
 }
 
+/*########################################################################*/
+/*########################### Page Modification ##########################*/
 
+.box{
+    background-color: #FFFFFF;
+    margin-bottom: 35px;
+    border-radius: 20px;
+    width: max-content;
+    margin-right: auto;
+    margin-left: 38%;
+    padding: 10px;
+    box-shadow: 5px 5px 10px grey;
+}
+.Box-title-modifier{
+    width: content-box;
+    padding-right: 43%;
+    padding-left: 43%;
+    margin-bottom: 50px;
+}
 
+.input{
+    margin-top: 15px;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    width: border-box;
+}
+.allBtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 20px;
+    padding: 4px;
+    width: content-box;
+}
+.btn-valider-modifier{
+    padding: 4px;
+    width: 100px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: #5eb5e0;
+    box-shadow: inset 0 0 0 0 aqua;
+    -webkit-transition: ease-out 0.6s;
+    -moz-transition: ease-out 0.6s;
+    transition: ease-out 0.6s;
+}
+.btn-valider-modifier:hover{
+    box-shadow: inset 400px 0 0 0 cornflowerblue;
+    color: #FFFFFF;
+}
+.btn-back{
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    text-decoration: none;
+    color: black;
+    font-size: 20px;
+    border: 1px solid #5eb5e0;
+    border-radius: 10px;
+    background-color: #5eb5e0;
+    box-shadow: inset 0 0 0 0 aqua;
+    -webkit-transition: ease-out 0.6s;
+    -moz-transition: ease-out 0.6s;
+    transition: ease-out 0.6s;
+}
+.btn-back:hover{
+    box-shadow: inset 0 100px 0 0 cornflowerblue;
+    color: #FFFFFF;
+}
+.btn-supprimer{
+    padding: 4px;
+    width: 100px;
+    font-size: 20px;
+    border-radius: 10px;
+    background-color: #5eb5e0;
+    box-shadow: inset 0 0 0 0 aqua;
+    -webkit-transition: ease-out 0.6s;
+    -moz-transition: ease-out 0.6s;
+    transition: ease-out 0.6s;
+}
+.btn-supprimer:hover{
+    box-shadow: inset 0 0 0 50px cornflowerblue;
+    color: #FFFFFF;
+}
 
-
-
-
+/*########################################################################*/
+/*###########################                   ##########################*/
 
 

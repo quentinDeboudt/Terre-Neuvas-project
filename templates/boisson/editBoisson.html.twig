@@ -3,53 +3,56 @@
 {% block title %}Modifier-Boisson{% endblock %}
 
 {% block body %}
-    <div class="Table_menu">
+    <div class="Box-title-modifier">
+        <h3>Modifier une Boisson </h3>
+    </div>
 
-        {{ form_start(Boisson) }}
-        <div class="entry-title" style="color: #0d5470">
-            <h1>Modifier une Boisson</h1>
-        </div>
-
+    <div class="box">
         <div >
-            <div class="image-menu">
+            {{ form_start(Boisson) }}
+
+            <div class="image">
                 {%if brochure%}
-                    <img src="{{ asset('uploads/brochures/' ~ brochure)}}" alt="Image">
+                    <img src="{{ asset('uploads/brochures/' ~ brochure)}}" alt="Image" class="sectionimg">
                 {%else%}
-                    <img src="{{ asset('img/default-image.png')}}" alt="Image" >
+                    <img src="{{ asset('img/default-image.png')}}" alt="Image" class="sectionimg" >
                 {%endif%}
             </div>
-            <div >
-                {{ form_row(Boisson.nom, {'attr': {'placeholder': "Nom de la Boisson"}}) }}
-            </div>
-            <div >
-                {{ form_row(Boisson.ingredients) }}
-            </div>
-            <div >
-                {{ form_row(Boisson.prix) }}
+
+            <div class="input">
+                <div >
+                    {{ form_row(Boisson.nom, {'attr': {'placeholder': "Nom de l'entrée"}}) }}
+                </div>
+                <div >
+                    {{ form_row(Boisson.ingredients) }}
+                </div>
+                <div >
+                    {{ form_row(Boisson.prix) }}
+                </div>
+                <div >
+                    {{ form_row(Boisson.brochure) }}
+                </div>
             </div>
 
         </div>
 
-        <div>
+        <div class="allBtn">
             <div>
-                {{ form_start(Boisson) }}
-                {{ form_widget(Boisson) }}
-                <button class="btn">{{ button_label|default('Modifier') }}</button>
-                {{ form_end(Boisson) }}
+                <div>
+                    {{ form_start(Boisson) }}
+                    <button class="btn-valider-modifier">{{ button_label|default('Modifier') }}</button>
+                    {{ form_end(Boisson) }}
+                </div>
             </div>
             <div>
-                <a href="{{ path('app_menu') }}">back</a>
+                <a class="btn-back" href="{{ path('app_menu') }}">back</a>
             </div>
-        </div>
-        <div class="">
-            <form method="post" action="{{ path('Boisson_delete', {'id': boisson.id} ) }}"
+
+            <form method="post" action="{{ path('Boisson_delete', {'id': ID }) }}"
                   onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer cette Boisson?');">
-
-                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ boisson.id) }}">
-                <button class="btn">Supprimer</button>
-
+                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ ID) }}">
+                <button class="btn-supprimer">Supprimer</button>
             </form>
         </div>
-
-
+    </div>
 {% endblock %}

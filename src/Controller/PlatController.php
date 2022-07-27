@@ -66,16 +66,17 @@ class PlatController extends AbstractController
         }
 
         $brochure =$plat->getBrochureFilename();
-
+        $ID = $plat->getId();
         return $this->render('plat/editPlat.html.twig', [
             'brochure'=>$brochure,
             'plat' => $plat,
             'Plat' => $modifierPlatForm->createView(),
+            'ID'=>$ID,
         ]);
     }
 
     ///////////////////////////////////////////////...Delete...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    #[Route('/Delete/{id}', name: 'Plat_delete', methods: ['POST'])]
+    #[Route('/Delete/{id}', name: 'Plat_delete', methods: ['post'])]
     public function delete(Request $request, Plat $plat, PlatRepository $PlatRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$plat->getId(), $request->request->get('_token'))) {

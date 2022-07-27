@@ -66,8 +66,9 @@ class DessertController extends AbstractController
             return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
         $brochure =$Dessert->getBrochureFilename();
-
+        $ID = $Dessert->getId();
         return $this->render('Dessert/editDessert.html.twig', [
+            'ID'=>$ID,
             'brochure'=>$brochure,
             'dessert' => $Dessert,
             'Dessert' => $modifierDessertForm->createView(),

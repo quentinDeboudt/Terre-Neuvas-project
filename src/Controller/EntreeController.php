@@ -69,8 +69,9 @@ class EntreeController extends AbstractController
             return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
         $brochure =$Entree->getBrochureFilename();
-
+        $ID = $Entree->getId();
         return $this->render('entree/editEntree.html.twig', [
+            'ID'=>$ID,
             'brochure'=>$brochure,
             'entree' => $Entree,
             'Entree' => $modifierMenuForm->createView(),
@@ -79,11 +80,12 @@ class EntreeController extends AbstractController
 
 
 ///////////////////////////////////////////////...Delete...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    #[Route('/Delete/{id}', name: 'Entree_delete', methods: ['POST'])]
+    #[Route('{id}/Delete/', name: 'Entree_delete', methods: ['POST'])]
     public function Delete(Request $request, Entree $entree, EntreeRepository $entreeRepository): Response
     {
 
-        if ( true/*$this->isCsrfTokenValid('delete'.$entree->getId(), $request->request->get('_token'))*/) {
+
+        if ($this->isCsrfTokenValid('delete'.$entree->getId(), $request->request->get('_token'))) {
             $entreeRepository->remove($entree, true);
         }
         return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);

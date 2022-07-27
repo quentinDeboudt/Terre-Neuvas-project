@@ -3,53 +3,46 @@
 {% block title %}Modifier-Entree{% endblock %}
 
 {% block body %}
-    <div class="Table_menu">
-        {{ form_start(Entree) }}
-        <div class="entry-title" style="color: #0d5470">
-            <h1>Modifier une Entree </h1>
-        </div>
+    <div class="Box-title-modifier">
+        <h3>Modifier une Entree </h3>
+    </div>
 
+    <div class="box">
         <div >
-            <div class="image-menu">
+            {{ form_start(Entree) }}
+
+            <div class="image">
                 {%if brochure%}
-                    <img src="{{ asset('uploads/brochures/' ~ brochure)}}" alt="Image">
+                    <img src="{{ asset('uploads/brochures/' ~ brochure)}}" alt="Image" class="sectionimg">
                 {%else%}
-                    <img src="{{ asset('img/default-image.png')}}" alt="Image" >
+                    <img src="{{ asset('img/default-image.png')}}" alt="Image" class="sectionimg" >
                 {%endif%}
             </div>
 
-            <div >
+            <div class="input">
                 {{ form_row(Entree.nom, {'attr': {'placeholder': "Nom de l'entrée"}}) }}
-            </div>
-            <div >
                 {{ form_row(Entree.ingredients) }}
-            </div>
-            <div >
                 {{ form_row(Entree.prix) }}
-            </div>
-
-        </div>
-
-        <div>
-            <div>
-                {{ form_start(Entree) }}
-                {{ form_widget(Entree) }}
-                <button class="btn">{{ button_label|default('Modifier') }}</button>
-                {{ form_end(Entree) }}
-            </div>
-            <div>
-                <a href="{{ path('app_menu') }}">back</a>
+                {{ form_row(Entree.brochure) }}
             </div>
         </div>
 
-        <div class="">
-            <form method="post" action="{{ path('Entree_delete', {'id': entree.id }) }}"
-                  onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer cette Entrée?');">
+        <div class="allBtn">
+            {{ form_start(Entree) }}
+                <div>
+                    <button class="btn-valider-modifier">{{ button_label|default('Modifier') }}</button>
+                </div>
+            {{ form_end(Entree) }}
+                <div>
+                    <a class="btn-back" href="{{ path('app_menu') }}">back</a>
+                </div>
 
-                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ entree.id) }}">
-                <button class="btn">Supprimer</button>
+                <form method="post" action="{{ path('Entree_delete', {'id': entree.id }) }}"
+                      onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer cette Entrée?');">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ entree.id) }}">
+                    <button type="submit" class="btn-supprimer">Supprimer</button>
+                </form>
 
-            </form>
         </div>
     </div>
 {% endblock %}
