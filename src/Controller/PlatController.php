@@ -5,7 +5,9 @@ namespace App\Controller;
 use App\Entity\Plat;
 use App\Form\PlatType;
 use App\Repository\PlatRepository;
+use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,13 +17,22 @@ class PlatController extends AbstractController
 {
     //////////////////////////////////////////////...Create...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     #[Route('/newPlat', name: 'Plat_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, PlatRepository $PlateRepository): Response
+    public function new(Request $request, PlatRepository $PlateRepository, FileUploader $fileUploader): Response
     {
         $Plat = new Plat();
         $createPlatform = $this->createForm(PlatType::class, $Plat);
         $createPlatform->handleRequest($request);
 
         if ($createPlatform->isSubmitted() && $createPlatform->isValid()) {
+
+            //################# image ###################\\
+            /** @var UploadedFile $brochureFile */
+            $brochureFile = $createPlatform->get('brochure')->getData();
+            if ($brochureFile) {
+                $brochureFileName = $fileUploader->upload($brochureFile);
+                $Plat->setBrochureFilename($brochureFileName);
+            }
+
             $PlateRepository->add($Plat, true);
             return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
@@ -35,20 +46,31 @@ class PlatController extends AbstractController
     /////////////////////////////////////////...update...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
     #[Route('/{id}/editPlat', name: 'menu_edit_plat', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Plat $plat, PlatRepository $platRepository): Response
+    public function edit(Request $request, Plat $plat, PlatRepository $platRepository, FileUploader $fileUploader): Response
     {
-        $modifierMenuForm = $this->createForm(PlatType::class, $plat);
-        $modifierMenuForm->handleRequest($request);
+        $modifierPlatForm = $this->createForm(PlatType::class, $plat);
+        $modifierPlatForm->handleRequest($request);
 
-        if ($modifierMenuForm->isSubmitted() && $modifierMenuForm->isValid()) {
+        if ($modifierPlatForm->isSubmitted() && $modifierPlatForm->isValid()) {
+
+            //################# image ###################\\
+            /** @var UploadedFile $brochureFile */
+            $brochureFile = $modifierPlatForm->get('brochure')->getData();
+            if ($brochureFile) {
+                $brochureFileName = $fileUploader->upload($brochureFile);
+                $plat->setBrochureFilename($brochureFileName);
+            }
+
             $platRepository->add($plat, true);
-
             return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
 
+        $brochure =$plat->getBrochureFilename();
+
         return $this->render('plat/editPlat.html.twig', [
+            'brochure'=>$brochure,
             'plat' => $plat,
-            'Plat' => $modifierMenuForm->createView(),
+            'Plat' => $modifierPlatForm->createView(),
         ]);
     }
 

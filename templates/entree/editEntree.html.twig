@@ -11,8 +11,8 @@
 
         <div >
             <div class="image-menu">
-                {%if Entree.brochureFilename%}
-                    <img src="{{ asset('uploads/brochures/' ~ Entree.brochureFilename())}}" alt="Image">
+                {%if brochure%}
+                    <img src="{{ asset('uploads/brochures/' ~ brochure)}}" alt="Image">
                 {%else%}
                     <img src="{{ asset('img/default-image.png')}}" alt="Image" >
                 {%endif%}

@@ -4,11 +4,19 @@
 
 {% block body %}
     <div class="Table_menu">
-
         {{ form_start(Plat) }}
+
+        <div class="entry-title" style="color: #0d5470">
+            <h1>Modifier un pat</h1>
+        </div>
+
         <div >
-            <div class="entry-title" style="color: #0d5470">
-                <h1>Modifier un pat</h1>
+            <div class="image-menu">
+                {%if brochure%}
+                    <img src="{{ asset('uploads/brochures/' ~ brochure)}}" alt="Image">
+                {%else%}
+                    <img src="{{ asset('img/default-image.png')}}" alt="Image" >
+                {%endif%}
             </div>
             <div >
                 {{ form_row(Plat.nom, {'attr': {'placeholder': "Nom du Plat"}}) }}

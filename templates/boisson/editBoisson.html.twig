@@ -7,10 +7,17 @@
 
         {{ form_start(Boisson) }}
         <div class="entry-title" style="color: #0d5470">
-            <h1>Modifier une Entree</h1>
+            <h1>Modifier une Boisson</h1>
         </div>
 
         <div >
+            <div class="image-menu">
+                {%if brochure%}
+                    <img src="{{ asset('uploads/brochures/' ~ brochure)}}" alt="Image">
+                {%else%}
+                    <img src="{{ asset('img/default-image.png')}}" alt="Image" >
+                {%endif%}
+            </div>
             <div >
                 {{ form_row(Boisson.nom, {'attr': {'placeholder': "Nom de la Boisson"}}) }}
             </div>

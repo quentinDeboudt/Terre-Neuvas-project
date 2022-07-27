@@ -5,9 +5,11 @@ namespace App\Form;
 use App\Entity\Dessert;
 use Symfony\Component\Form\AbstractType;
 
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
 
 class DessertType extends AbstractType
 {
@@ -34,6 +36,22 @@ class DessertType extends AbstractType
                     'class' => 'form-menu',
                     'id' => 'form-menu-Dessert-prix'
                 ]
+            ])
+            ->add('brochure', FileType::class, [
+                'label' => 'Image :',
+                'mapped' => false,
+                'required' => false,
+                'constraints' => [
+                    new File([
+                        'maxSize' => '1044k',
+                        'mimeTypes' => [
+                            'image/jpeg',
+                            'image/png',
+                            'image/jpg'
+                        ],
+                        'mimeTypesMessage' => 'Veuillez ajouter un type d\'image valide',
+                    ])
+                ],
             ])
         ;
     }

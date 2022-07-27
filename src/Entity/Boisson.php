@@ -22,6 +22,9 @@ class Boisson
     #[ORM\Column(type: 'integer')]
     private $prix;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $brochureFilename;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,19 @@ class Boisson
     public function setPrix(int $prix): self
     {
         $this->prix = $prix;
+
+        return $this;
+    }
+
+
+    public function getBrochureFilename()
+    {
+        return $this->brochureFilename;
+    }
+
+    public function setBrochureFilename($brochureFilename)
+    {
+        $this->brochureFilename = $brochureFilename;
 
         return $this;
     }

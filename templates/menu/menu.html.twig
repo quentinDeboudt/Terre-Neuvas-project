@@ -32,7 +32,7 @@
                 <div class="info">
                     <div class="sectionNom">{{ Entree.nom }}</div>
                     <div class="sectionIngredients">{{ Entree.ingredients }}</div>
-                    <div class="sectionPrix">{{ Entree.prix }}</div>
+                    <div class="sectionPrix">{{ Entree.prix }}€</div>
                 </div>
                 <div class="image">
                     {%if Entree.brochureFilename%}
@@ -70,7 +70,7 @@
                 <div class="info">
                     <div class="sectionNom">{{ Plat.nom }}</div>
                     <div class="sectionIngredients">{{ Plat.ingredients }}</div>
-                    <div class="sectionPrix">{{ Plat.prix }}</div>
+                    <div class="sectionPrix">{{ Plat.prix }}€</div>
                 </div>
                 <div class="image">
                     {%if Plat.brochureFilename%}
@@ -79,7 +79,7 @@
                         <img src="{{ asset('img/default-image.png')}}" alt=""  class="sectionimg">
                     {%endif%}
                 </div>
-                <div class="btn-modifier"><a class="text-modifier" href="{{ path('menu_edit_entree', {'id': Plat.id}) }}">Modifier</a></div>
+                <div class="btn-modifier"><a class="text-modifier" href="{{ path('menu_edit_plat', {'id': Plat.id}) }}">Modifier</a></div>
             </section>
         {% endfor %}
         {% if LstPLats is empty %}
@@ -89,7 +89,7 @@
         {% endif %}
     </div>
     <div class="box-Parents-btn-plus">
-        <a  href="{{ path('Entree_new') }}"><img class="btn-plus" src="{{ asset('img/btnPlus.png') }}" rel="{{ path('Entree_new') }}" ></a>
+        <a  href="{{ path('Plat_new') }}"><img class="btn-plus" src="{{ asset('img/btnPlus.png') }}" rel="{{ path('Entree_new') }}" ></a>
     </div>
     {############################ Dessert ###############################}
     <div class="title-menu">
@@ -106,7 +106,7 @@
                 <div class="info">
                     <div class="sectionNom">{{ Dessert.nom }}</div>
                     <div class="sectionIngredients">{{ Dessert.ingredients }}</div>
-                    <div class="sectionPrix">{{ Dessert.prix }}</div>
+                    <div class="sectionPrix">{{ Dessert.prix }}€</div>
                 </div>
                 <div class="image">
                     {%if Dessert.brochureFilename%}
@@ -115,7 +115,7 @@
                         <img src="{{ asset('img/default-image.png')}}" alt=""  class="sectionimg">
                     {%endif%}
                 </div>
-                <div class="btn-modifier"><a class="text-modifier" href="{{ path('menu_edit_entree', {'id': Dessert.id}) }}">Modifier</a></div>
+                <div class="btn-modifier"><a class="text-modifier" href="{{ path('menu_edit_Dessert', {'id': Dessert.id}) }}">Modifier</a></div>
             </section>
         {% endfor %}
         {% if LstDesserts is empty %}
@@ -126,7 +126,7 @@
     </div>
 
     <div class="box-Parents-btn-plus">
-        <a  href="{{ path('Entree_new') }}"><img class="btn-plus" src="{{ asset('img/btnPlus.png') }}" rel="{{ path('Entree_new') }}" ></a>
+        <a  href="{{ path('Dessert_new') }}"><img class="btn-plus" src="{{ asset('img/btnPlus.png') }}" rel="{{ path('Entree_new') }}" ></a>
     </div>
     {############################ Boisson ###############################}
     <div class="title-menu">
@@ -143,7 +143,7 @@
                 <div class="info">
                     <div class="sectionNom">{{ Boisson.nom }}</div>
                     <div class="sectionIngredients">{{ Boisson.ingredients }}</div>
-                    <div class="sectionPrix">{{ Boisson.prix }}</div>
+                    <div class="sectionPrix">{{ Boisson.prix }}€</div>
                 </div>
                 <div class="image">
                     {%if Boisson.brochureFilename%}
@@ -152,7 +152,7 @@
                         <img src="{{ asset('img/default-image.png')}}" alt=""  class="sectionimg">
                     {%endif%}
                 </div>
-                <div class="btn-modifier"><a class="text-modifier" href="{{ path('menu_edit_entree', {'id': Boisson.id}) }}">Modifier</a></div>
+                <div class="btn-modifier"><a class="text-modifier" href="{{ path('menu_edit_Boisson', {'id': Boisson.id}) }}">Modifier</a></div>
             </section>
         {% endfor %}
         {% if LstBoissons is empty %}
@@ -162,6 +162,6 @@
         {% endif %}
     </div>
     <div class="box-Parents-btn-plus">
-        <a  href="{{ path('Entree_new') }}"><img class="btn-plus" src="{{ asset('img/btnPlus.png') }}" rel="{{ path('Entree_new') }}" ></a>
+        <a  href="{{ path('Boisson_new') }}"><img class="btn-plus" src="{{ asset('img/btnPlus.png') }}" rel="{{ path('Entree_new') }}" ></a>
     </div>
 {% endblock %}

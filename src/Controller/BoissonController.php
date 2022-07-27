@@ -7,7 +7,9 @@ use App\Entity\Boisson;
 use App\Form\BoissonType;
 
 use App\Repository\BoissonRepository;
+use App\Service\FileUploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -18,18 +20,27 @@ class BoissonController extends AbstractController
 {
     ///////////////////////////////////////////////...Create...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     #[Route('/newBoisson', name: 'Boisson_new', methods: ['GET', 'POST'])]
-    public function new(Request $request, BoissonRepository $BoissonRepository): Response
+    public function new(Request $request, BoissonRepository $BoissonRepository, FileUploader $fileUploader): Response
     {
-        $Boisson = new Boisson();
-        $createBoissonform = $this->createForm(BoissonType::class, $Boisson);
+        $boisson = new Boisson();
+        $createBoissonform = $this->createForm(BoissonType::class, $boisson);
         $createBoissonform->handleRequest($request);
 
         if ($createBoissonform->isSubmitted() && $createBoissonform->isValid()) {
-            $BoissonRepository->add($Boisson, true);
+
+            //################# image ###################\\
+            /** @var UploadedFile $brochureFile */
+            $brochureFile = $createBoissonform->get('brochure')->getData();
+            if ($brochureFile) {
+                $brochureFileName = $fileUploader->upload($brochureFile);
+                $boisson->setBrochureFilename($brochureFileName);
+            }
+
+            $BoissonRepository->add($boisson, true);
             return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
         return $this->render('Boisson/newBoisson.html.twig', [
-            'boisson' => $Boisson,
+            'boisson' => $boisson,
             'Boisson' => $createBoissonform->createView(),
         ]);
     }
@@ -38,20 +49,31 @@ class BoissonController extends AbstractController
     /////////////////////////////////////////...update...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
     #[Route('/{id}/editBoisson', name: 'menu_edit_Boisson', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Boisson $boisson, BoissonRepository $boissonRepository): Response
+    public function edit(Request $request, Boisson $boisson, BoissonRepository $boissonRepository, FileUploader $fileUploader): Response
     {
-        $modifierMenuForm = $this->createForm(BoissonType::class, $boisson);
-        $modifierMenuForm->handleRequest($request);
+        $modifierBoissonForm = $this->createForm(BoissonType::class, $boisson);
+        $modifierBoissonForm->handleRequest($request);
 
-        if ($modifierMenuForm->isSubmitted() && $modifierMenuForm->isValid()) {
+        if ($modifierBoissonForm->isSubmitted() && $modifierBoissonForm->isValid()) {
+
+            //################# image ###################\\
+            /** @var UploadedFile $brochureFile */
+            $brochureFile = $modifierBoissonForm->get('brochure')->getData();
+            if ($brochureFile) {
+                $brochureFileName = $fileUploader->upload($brochureFile);
+                $boisson->setBrochureFilename($brochureFileName);
+            }
+
             $boissonRepository->add($boisson, true);
-
             return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
 
+        $brochure =$boisson->getBrochureFilename();
+
         return $this->render('Boisson/editBoisson.html.twig', [
+            'brochure'=>$brochure,
             'boisson' => $boisson,
-            'Boisson' => $modifierMenuForm->createView(),
+            'Boisson' => $modifierBoissonForm->createView(),
         ]);
     }
 
