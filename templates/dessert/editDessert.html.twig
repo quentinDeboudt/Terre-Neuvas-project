@@ -48,8 +48,8 @@
                 <a class="btn-back" href="{{ path('app_menu') }}">back</a>
             </div>
 
-            <form method="post" action="{{ path('Plat_delete', {'id': ID }) }}"
-                  onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer ce Plat?');">
+            <form method="post" action="{{ path('Dessert_delete', {'id': ID }) }}"
+                  onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer ce Dessert?');">
                 <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ ID) }}">
                 <button class="btn-supprimer">Supprimer</button>
             </form>

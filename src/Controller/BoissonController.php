@@ -79,7 +79,7 @@ class BoissonController extends AbstractController
     }
 
     ///////////////////////////////////////////////...Delete...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    #[Route('/Delete/{id}', name: 'Boisson_delete', methods: ['POST'])]
+    #[Route('{id}/DeleteBoisson', name: 'Boisson_delete', methods: ['POST'])]
     public function delete(Request $request, Boisson $boisson, BoissonRepository $boissonRepository): Response
     {
         if ($this->isCsrfTokenValid('delete'.$boisson->getId(), $request->request->get('_token'))) {
