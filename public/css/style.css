@@ -13,48 +13,46 @@ body {
 /*########################################################################*/
 /*######################### Header | Nav-Bar #############################*/
 nav{
+    top: 0;
     z-index: 10;
-    /*position: fixed;*/
+    position: absolute;
     width: 100%;
     padding: 0;
     margin: 0;
 }
 nav h2{
-    margin-right: 25% ;
+    margin-right: 20% ;
     margin-left: 10px;
-    padding: 6px;
-    font-family: MingLiU-ExtB, Gabriola, Arial , cursive;
-    border: 2px double mediumseagreen;
-    border-radius: 10px;
+    padding: 2px;
+    font-family: Lobster, MingLiU-ExtB, Gabriola, Arial , cursive;
+    color: #FFFFFF;
 }
 #nav-bar{
     padding: 0;
     margin: 0;
     width: 100%;
-    background-color: white;
+    background-color: rgba(175, 173, 173, 0.45);
     list-style-type: none; /* Remove bullets */
     display: flex;
     flex-direction: row;
+    border-bottom: 3px solid rgb(103, 103, 103);
 }
 .link-nav-bar{
-    margin-top: 16px;
-   display: flex;
-   margin-right: 10px;
-   text-decoration: none;
-   color: black ;
-   padding: 6px 0;
-   border-top: 0.5px solid #ffffff;
-   border-bottom: 0.5px solid #ffffff;
-   transition: all 0.5s ;
+    font-size: 20px;
+    align-items:center;
+    display: flex;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-decoration: none;
+    font-family: MingLiU-ExtB, Gabriola, Arial , cursive;
+    color: #FFFFFF ;
+    height: 100%;
+    transition: all 0.6s ;
 }
 .link-nav-bar:hover{
-    display: flex;
-    margin-right: 10px;
-    text-decoration: none;
-    color: #000000;
-    border-top: 4px solid mediumseagreen;
-    border-bottom: 4px solid mediumseagreen;
-    padding: 2px 0;
+    background-color: #aeb70d;
+    border-bottom: 3px solid #5f650c;
+    /*padding: 2px 0;*/
 }
 
 /*########################################################################*/
@@ -66,16 +64,17 @@ nav h2{
 
 h1{
     color: white;
-    text-shadow: mediumseagreen 1px 4px;
+    text-shadow: #aeb70d 1px 4px;
     box-shadow: #5eb5e0;
     position: absolute;
     width: 100%;
     text-align: center;
-    top: 180px;
-    font-size: 60px;
+    top: 160px;
+    font-size: 90px;
     font-min-size: 60px;
     font-max-size: 60px;
-    font-family: MingLiU-ExtB, Gabriola, Arial , cursive;
+    font-family: Lobster, MingLiU-ExtB, Gabriola, Arial , cursive;
+    transform: rotate(-10deg);
 }
 #div-btn-carte{
     position: absolute;

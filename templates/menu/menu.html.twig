@@ -3,6 +3,8 @@
 {% block title %}menu{% endblock %}
 
 {% block body %}
+    <img id="img-Restaurants" src="{{ asset('img/cropped-05-2.jpg') }}" alt="img-Entree-terre-neuvas">
+
 
     <div id="Header">
 
@@ -10,9 +12,7 @@
             <p>Date du Jour: {{ "now"|date("d/m/Y") }}</p>
         </div>
 
-        <div id="prenomParticipant">
-            <p>Utilisateur: {{ app.user.username ?? 'Vous n\'etes pas connecté' }}</p>
-        </div>
+
     </div>
 
 

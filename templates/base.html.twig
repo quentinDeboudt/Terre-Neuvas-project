@@ -20,7 +20,7 @@
 
             <nav>
                 <ul id="nav-bar">
-                    <h2>La Feuille Vert</h2>
+                    <h2>Poké-p'</h2>
                     <li>
                         <a class="link-nav-bar" href="{{path('app_accueil')}}" title="Cart/Menu">Cart/Menu</a>
                     </li>
@@ -34,6 +34,10 @@
                         <a class="link-nav-bar" href="{{path('app_menu')}}" title="Menu">Menu</a>
                     </li>
                 </ul>
+
+                <div id="prenomParticipant">
+                    <p>{{ app.user.username ?? '' }}</p>
+                </div>
             </nav>
         {% endblock %}
 
