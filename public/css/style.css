@@ -15,32 +15,45 @@ body {
 nav{
     z-index: 10;
     /*position: fixed;*/
-    background-color: white;
     width: 100%;
-    padding: 4px;
+    padding: 0;
+    margin: 0;
+}
+nav h2{
+    margin-right: 25% ;
+    margin-left: 10px;
+    padding: 6px;
+    font-family: MingLiU-ExtB, Gabriola, Arial , cursive;
+    border: 2px double mediumseagreen;
+    border-radius: 10px;
 }
 #nav-bar{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    background-color: white;
     list-style-type: none; /* Remove bullets */
     display: flex;
-    width: fit-content;
+    flex-direction: row;
 }
 .link-nav-bar{
-    display: flex;
-    margin-right: 10px;
-    text-decoration: none;
-    color: black ;
-    padding: 6px 0;
-    border-top: 0.5px solid #ffffff;
-    border-bottom: 0.5px solid #ffffff;
-    transition: all 0.5s ;
+    margin-top: 16px;
+   display: flex;
+   margin-right: 10px;
+   text-decoration: none;
+   color: black ;
+   padding: 6px 0;
+   border-top: 0.5px solid #ffffff;
+   border-bottom: 0.5px solid #ffffff;
+   transition: all 0.5s ;
 }
 .link-nav-bar:hover{
     display: flex;
     margin-right: 10px;
     text-decoration: none;
     color: #000000;
-    border-top: 4px solid #f6e6ba;
-    border-bottom: 4px solid #f6e6ba;
+    border-top: 4px solid mediumseagreen;
+    border-bottom: 4px solid mediumseagreen;
     padding: 2px 0;
 }
 
@@ -52,14 +65,38 @@ nav{
 }
 
 h1{
+    color: white;
+    text-shadow: mediumseagreen 1px 4px;
+    box-shadow: #5eb5e0;
     position: absolute;
     width: 100%;
     text-align: center;
     top: 180px;
-    color: #FFFFFF;
     font-size: 60px;
     font-min-size: 60px;
     font-max-size: 60px;
+    font-family: MingLiU-ExtB, Gabriola, Arial , cursive;
+}
+#div-btn-carte{
+    position: absolute;
+    top: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#btn-carte{
+    font-size: 30px;
+    text-decoration: none;
+    color: #FFFFFF;
+    padding: 5px;
+    border: 2px solid mediumseagreen;
+    border-radius: 16px;
+    background-color: rgba(60, 179, 113, 0.35);
+    transition-duration: 500ms;
+}
+#btn-carte:hover{
+    font-size: 33px;
 }
 /*########################################################################*/
 /*############################ block #1 ##################################*/
@@ -124,17 +161,7 @@ h1{
     height: min-content;
     width: 400px;
 }
-#div-btn-carte{
-    text-align: center;
-    margin-top: 50px;
-}
-#btn-carte{
-    padding: 8px;
-    text-decoration: none;
-    color: black;
-    border: 1px solid black;
-    border-radius: 0 10px;
-}
+
 
 /*########################################################################*/
 /*############################## Menu / User #############################*/

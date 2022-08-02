@@ -14,7 +14,8 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
             form_login:
-                # ...
+                login_path: app_login
+                check_path: app_login
                 enable_csrf: true
         main:
             lazy: true
@@ -23,10 +24,11 @@ security:
             logout:
                 path: app_logout
                 # where to redirect after logout
-                target: app_login
+                # target: app_login
+            login_throttling: null
             remember_me:
                 secret: '%kernel.secret%'
-                # ...
+                lifetime: 604800 # 1 week in seconds
                 always_remember_me: true
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#the-firewall

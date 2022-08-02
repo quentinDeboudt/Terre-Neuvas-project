@@ -5,23 +5,24 @@
 {% block body %}
     <form method="post" id="login-page">
         {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+            <div class="alert alert-danger"> Identifiant ou mot de passe incorrect. </div>
         {% endif %}
 
         {% if app.user %}
             <div class="">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+                Vous êtes connecté {{ app.user.userIdentifier }}, voulez-vous vous <a href="{{ path('app_logout') }}">déconnecter ?</a>
             </div>
         {% endif %}
 
         <h1 class="">Connectez-vous...</h1>
+
         <label for="inputUsername">Identifiant</label>
         <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+
         <label for="inputPassword">Mot de passe</label>
         <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
         <input type="hidden" name="_csrf_token" value=" {{ csrf_token('authenticate') }} ">
-
         <div class="checkbox mb-3">
             <label>
                 <input type="checkbox" name="_remember_me"> Ce rappeler de moi..
