@@ -9,6 +9,11 @@ body {
 
 #login-page{
     color: black;
+    margin-top: 20%;
+    margin-left: 40%;
+    margin-right: auto;
+    width: 190px;
+    border: 1px solid red;
 }
 /*########################################################################*/
 /*######################### Header | Nav-Bar #############################*/
@@ -31,7 +36,7 @@ nav h2{
     padding: 0;
     margin: 0;
     width: 100%;
-    background-color: rgba(175, 173, 173, 0.45);
+    background-color: rgba(175, 173, 173, 0.57);
     list-style-type: none; /* Remove bullets */
     display: flex;
     flex-direction: row;
@@ -100,66 +105,9 @@ h1{
 /*########################################################################*/
 /*############################ block #1 ##################################*/
 
-#content {
-    display: flex;
-    padding: 25px;
-    font-family: cursive;
-}
-#block-Detail{
-}
-#block-horaire{
-}
-#block-Info{
-}
-#btn-plus-photos{
-    text-decoration: none;
-    padding: 6px;
-    color: black;
-    background-color: #f6e6ba;
-    border: 2px solid #f6e6ba;
-    border-radius: 5px;
-}
-#btn-plus-photos:hover{
-    text-decoration: none;
-    padding: 6px;
-    color: black;
-    background-color: #ffffff;
-    border: 2px solid #f6e6ba;
-    border-radius: 5px;
-}
 
 /*########################################################################*/
 /*############################ block #2 ##################################*/
-#img-menu{
-    width: 100%;
-}
-#block-decouvertes-culinaires{
-    display: flex;
-    height: 500px;
-}
-#img-port-erquy{
-    position: absolute;
-    height: 350px;
-    border: 2px #000000 solid;
-    margin: 30px;
-}
-#img-plats-2{
-    z-index: 8;
-    position: absolute;
-    width: 170px;
-    border: 2px #000000 solid;
-    right: 730px;
-    margin-top: 310px;
-}
-#PlusInfo{
-    position: absolute;
-    left: 25%;
-    font-family: cursive;
-    margin-top: 30px;
-    padding: 20px 20px 50px 20px;
-    height: min-content;
-    width: 400px;
-}
 
 
 /*########################################################################*/
