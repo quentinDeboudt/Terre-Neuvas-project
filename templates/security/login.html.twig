@@ -17,10 +17,10 @@
         <h2 class="">Connectez-vous...</h2>
 
         <label for="inputUsername">Identifiant</label>
-        <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
+        <input type="text" value="{{ last_username }}" name="_username" id="inputUsername" class="form-control" autocomplete="username" required autofocus>
 
         <label for="inputPassword">Mot de passe</label>
-        <input type="password" name="password" id="inputPassword" class="form-control" autocomplete="current-password" required>
+        <input type="password" name="_password" id="inputPassword" class="form-control" autocomplete="current-password" required>
 
         <input type="hidden" name="_csrf_token" value=" {{ csrf_token('authenticate') }} ">
         <div class="checkbox mb-3">
