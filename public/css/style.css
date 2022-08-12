@@ -25,9 +25,13 @@ nav{
     padding: 0;
     margin: 0;
 }
-nav h2{
-    margin-right: 20% ;
+#title{
     margin-left: 10px;
+    text-decoration: none;
+    margin-right: 20% ;
+}
+nav h2{
+    width: 100px;
     padding: 2px;
     font-family: Lobster, MingLiU-ExtB, Gabriola, Arial , cursive;
     color: #FFFFFF;
@@ -58,6 +62,9 @@ nav h2{
     background-color: #aeb70d;
     border-bottom: 3px solid #5f650c;
     /*padding: 2px 0;*/
+}
+#prenomParticipant{
+
 }
 
 /*########################################################################*/
@@ -237,10 +244,12 @@ div.title-menu h2{
 .box{
     background-color: #FFFFFF;
     margin-bottom: 35px;
-    border-radius: 20px;
-    width: max-content;
     margin-right: auto;
     margin-left: 38%;
+    margin-top: 150px;
+    border-radius: 20px;
+    width: max-content;
+
     padding: 10px;
     box-shadow: 5px 5px 10px grey;
 }

@@ -20,24 +20,23 @@
 
             <nav>
                 <ul id="nav-bar">
-                    <h2>Poké-p'</h2>
+                    <a id="title" href="{{path('app_accueil')}}"> <h2> Poké-p'</h2></a>
+
                     <li>
-                        <a class="link-nav-bar" href="{{path('app_accueil')}}" title="Cart/Menu">Cart/Menu</a>
-                    </li>
-                    <li>
-                        <a class="link-nav-bar" href="{{path('app_accueil')}}" title="Terre-Neuvas">Terre-Neuvas</a>
+                        <a class="link-nav-bar" href="{{path('app_afficher_menu')}}" title="Cart/Menu">Menu</a>
                     </li>
                     <li>
                         <a class="link-nav-bar" href="{{path('app_accueil')}}" title="Contact">Contact</a>
                     </li>
                     <li>
-                        <a class="link-nav-bar" href="{{path('app_menu')}}" title="Menu">Menu</a>
+                        <a class="link-nav-bar" href="{{path('app_menu')}}" title="Menu">Modifier le Menu</a>
                     </li>
+                    <div id="prenomParticipant">
+                        <p>{{ app.user.username ?? '' }}</p>
+                    </div>
                 </ul>
 
-                <div id="prenomParticipant">
-                    <p>{{ app.user.username ?? '' }}</p>
-                </div>
+
             </nav>
         {% endblock %}
 
