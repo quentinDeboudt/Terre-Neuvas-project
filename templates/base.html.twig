@@ -28,13 +28,20 @@
                     <li>
                         <a class="link-nav-bar" href="{{path('app_accueil')}}" title="Contact">Contact</a>
                     </li>
+                    {% if app.user%}
                     <li>
                         <a class="link-nav-bar" href="{{path('app_menu')}}" title="Menu">Modifier le Menu</a>
                     </li>
-                    <div id="prenomParticipant">
-                        <p>{{ app.user.username ?? '' }}</p>
-                    </div>
+                    {% endif %}
                 </ul>
+
+                {% if app.user%}
+                    <div id="prenomParticipant">
+                        <p id="name_login">{{app.user.username}}</p>
+                        <p id="separator">|</p>
+                        <a id="logout" href="{{path('app_logout')}}">Déconection</a>
+                    </div>
+                {% endif %}
 
 
             </nav>

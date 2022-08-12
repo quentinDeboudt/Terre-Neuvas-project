@@ -64,7 +64,35 @@ nav h2{
     /*padding: 2px 0;*/
 }
 #prenomParticipant{
+    padding-left: 20px;
+    background-color: #FFFFFF;
+    width: 100%;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+}
+#name_login{
+    margin: 0;
+    padding: 0;
+}
+#separator{
+    margin: 0;
+    padding: 0;
+    color: black;
+    font-size: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+#logout{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    color: black;
+    height: 10px;
 
+}
+#logout:hover{
+    color: #aeb70d ;
 }
 
 /*########################################################################*/
