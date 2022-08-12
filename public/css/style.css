@@ -8,12 +8,15 @@ body {
 }
 
 #login-page{
+    background-color: #FFFFFF;
+    border-radius: 10%;
+    padding: 30px;
     color: black;
     margin-top: 20%;
     margin-left: 40%;
     margin-right: auto;
-    width: 190px;
-    border: 1px solid red;
+    width: 200px;
+    font-family: Lobster, MingLiU-ExtB, Gabriola, Arial , cursive;
 }
 /*########################################################################*/
 /*######################### Header | Nav-Bar #############################*/
@@ -139,11 +142,47 @@ h1{
 }
 /*########################################################################*/
 /*############################ block #1 ##################################*/
+#blockOne{
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
 
+#blockLeft{
+    width: 50%;
+    height: 500px;
+    background-color: #FFFFFF;
+    padding: 30px;
+}
+#blockLeft h3{
+    text-align: center
+}
+
+#blockRight{
+    width: 50%;
+    height: 500px;
+    background-color: #aeb70d;
+    padding: 30px;
+}
+#blockRight h3{
+    text-align: center
+}
 
 /*########################################################################*/
 /*############################ block #2 ##################################*/
 
+#BlockContact{
+    background-color: #999999;
+    display: grid;
+}
+#BlockContact a{
+    text-decoration: none;
+    color: #000000;
+}
+#BlockContact a p{
+    width: min-content;
+
+}
 
 /*########################################################################*/
 /*############################## Menu / User #############################*/

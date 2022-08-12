@@ -3,34 +3,31 @@
 {% block title %}Hello AccueilController!{% endblock %}
 
 {% block body %}
-    <div>
+    <div style="padding: 0; margin: 0;">
         <img id="img-Restaurants" src="{{ asset('img/Fond.png') }}" alt="img-Entree-terre-neuvas">
         <h1>poké platters</h1>
+    </div>
 
-        <div id="div-btn-carte">
-            <a id="btn-carte" href="{{path('app_afficher_menu')}}" title="Découvrire notre carte">Découvrire notre carte</a>
+    <div id="blockOne">
+
+        <div id="blockLeft">
+            <h3>Menu en ligne</h3>
+            <a id="" href="" >Menu</a>
+        </div>
+
+        <div id="blockRight">
+            <h3>Notre Restaurants</h3>
+            <p>Une envie irrésistible? Retrouvez nos pokés Platters en France.
+                Nous vous servons en livraison, à emporter ou sur place,
+                toujours là près de chez vous et heureux de vous accueillir pour vous
+                faire partager notre passion.</p>
         </div>
     </div>
-<div>
-    <p>.</p>
-    <p>.</p>
-    <p>.</p>
-    <p>.</p>
-    <p>.</p>
-    <p>.</p>
-    <p>.</p>
-    <p>.</p>
-    <p>.</p>
-    <p>.</p>
-    <p>.</p>
-    <p>.</p>
-    <p>.</p>
-    <p>.</p>
-    <p>.</p>
 
-
-
-
-</div>
+    <div id="BlockContact">
+        <a id="" href="" > <p>Tel:</p> 03 06 29 46 20</a>
+        <a id="" href="" > <p>Mail:</p> Poke.platters@mailto.fr</a>
+        <a id="" href="" > <p>Adress:</p> 10 rue des poké</a>
+    </div>
 
 {% endblock %}
