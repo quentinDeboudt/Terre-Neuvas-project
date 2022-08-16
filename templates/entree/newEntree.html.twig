@@ -4,7 +4,6 @@
 
 {% block body %}
     <div class="box">
-
         {{ form_start(Entree) }}
         <div class="input">
             {{ form_row(Entree.nom, {'attr': {'placeholder': "Gaspacho"}}) }}
@@ -12,17 +11,12 @@
             {{ form_row(Entree.prix, {'attr': {'placeholder': "10.90"}}) }}
             {{ form_row(Entree.brochure)}}
         </div>
-
-        <div>
-            <div class="allBtn">
-                {{ form_start(Entree) }}
-                {{ form_widget(Entree) }}
-                <button class="btn-valider-modifier">{{ button_label|default('Enregistrer') }}</button>
-                {{ form_end(Entree) }}
-            </div>
-            <div>
-                <a class="btn-back" href="{{ path('app_menu') }}">back</a>
-            </div>
+        <div class="allBtn">
+            {{ form_start(Entree) }}
+            {{ form_widget(Entree) }}
+            <button class="btn-valider-modifier">{{ button_label|default('Enregistrer') }}</button>
+            {{ form_end(Entree) }}
+            <a class="btn-back" href="{{ path('app_menu') }}">back</a>
         </div>
     </div>
 {% endblock %}

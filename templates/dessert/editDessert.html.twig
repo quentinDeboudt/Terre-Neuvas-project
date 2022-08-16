@@ -6,47 +6,30 @@
     <div class="Box-title-modifier">
         <h3>Modifier une Dessert </h3>
     </div>
-
     <div class="box">
-        <div >
-            {{ form_start(Dessert) }}
+        {{ form_start(Dessert) }}
 
-            <div class="image">
-                {%if brochure%}
-                    <img src="{{ asset('uploads/brochures/' ~ brochure)}}" alt="Image" class="sectionimg">
-                {%else%}
-                    <img src="{{ asset('img/default-image.png')}}" alt="Image" class="sectionimg" >
-                {%endif%}
-            </div>
+        <div class="image">
+            {%if brochure%}
+                <img src="{{ asset('uploads/brochures/' ~ brochure)}}" alt="Image" class="sectionimg">
+            {%else%}
+                <img src="{{ asset('img/default-image.png')}}" alt="Image" class="sectionimg" >
+            {%endif%}
+        </div>
 
-            <div class="input">
-                <div >
-                    {{ form_row(Dessert.nom, {'attr': {'placeholder': "Nom de l'entrée"}}) }}
-                </div>
-                <div >
-                    {{ form_row(Dessert.ingredients) }}
-                </div>
-                <div >
-                    {{ form_row(Dessert.prix) }}
-                </div>
-                <div >
-                    {{ form_row(Dessert.brochure) }}
-                </div>
-            </div>
-
+        <div class="input">
+            {{ form_row(Dessert.nom, {'attr': {'placeholder': "Nom de l'entrée"}}) }}
+            {{ form_row(Dessert.ingredients) }}
+            {{ form_row(Dessert.prix) }}
+            {{ form_row(Dessert.brochure) }}
         </div>
 
         <div class="allBtn">
-            <div>
-                <div>
-                    {{ form_start(Dessert) }}
-                    <button class="btn-valider-modifier">{{ button_label|default('Modifier') }}</button>
-                    {{ form_end(Dessert) }}
-                </div>
-            </div>
-            <div>
-                <a class="btn-back" href="{{ path('app_menu') }}">back</a>
-            </div>
+            {{ form_start(Dessert) }}
+            <button class="btn-valider-modifier">{{ button_label|default('Modifier') }}</button>
+            {{ form_end(Dessert) }}
+
+            <a class="btn-back" href="{{ path('app_menu') }}">back</a>
 
             <form method="post" action="{{ path('Dessert_delete', {'id': ID }) }}"
                   onsubmit="return confirm('Êtes-vous sûr de bien vouloir supprimer ce Dessert?');">
@@ -54,5 +37,4 @@
                 <button class="btn-supprimer">Supprimer</button>
             </form>
         </div>
-    </div>
 {% endblock %}

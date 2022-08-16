@@ -3,32 +3,20 @@
 {% block title %}Plat{% endblock %}
 
 {% block body %}
-    <div class="Table_menu">
-
+    <div class="box">
         {{ form_start(Plat) }}
-        <div>
-            <div>
-                {{ form_row(Plat.nom, {'attr': {'placeholder': "Gaspacho"}}) }}
-            </div>
-            <div>
-                {{ form_row(Plat.ingredients, {'attr': {'placeholder': "tomates, poivron rouge, ail ..."}}) }}
-            </div>
-            <div>
-                {{ form_row(Plat.prix, {'attr': {'placeholder': "10.90"}}) }}
-            </div>
-
+        <div class="input">
+            {{ form_row(Plat.nom, {'attr': {'placeholder': "Gaspacho"}}) }}
+            {{ form_row(Plat.ingredients, {'attr': {'placeholder': "tomates, poivron rouge, ail ..."}}) }}
+            {{ form_row(Plat.prix, {'attr': {'placeholder': "10.90"}}) }}
+            {{ form_row(Plat.brochure)}}
         </div>
-
-        <div>
-            <div>
-                {{ form_start(Plat) }}
-                {{ form_widget(Plat) }}
-                <button class="btn">{{ button_label|default('Enregistrer') }}</button>
-                {{ form_end(Plat) }}
-            </div>
-            <div>
-                <a href="{{ path('app_menu') }}">back</a>
-            </div>
+        <div class="allBtn">
+            {{ form_start(Plat) }}
+            {{ form_widget(Plat) }}
+            <button class="btn-valider-modifier">{{ button_label|default('Enregistrer') }}</button>
+            {{ form_end(Plat) }}
+            <a class="btn-back" href="{{ path('app_menu') }}">back</a>
         </div>
     </div>
 {% endblock %}

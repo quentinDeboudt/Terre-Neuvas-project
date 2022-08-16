@@ -3,32 +3,20 @@
 {% block title %}Boisson{% endblock %}
 
 {% block body %}
-    <div class="Table_menu">
-
+    <div class="box">
         {{ form_start(Boisson) }}
-        <div>
-            <div>
-                {{ form_row(Boisson.nom, {'attr': {'placeholder': "Gaspacho"}}) }}
-            </div>
-            <div>
-                {{ form_row(Boisson.ingredients, {'attr': {'placeholder': "tomates, poivron rouge, ail ..."}}) }}
-            </div>
-            <div>
-                {{ form_row(Boisson.prix, {'attr': {'placeholder': "10.90"}}) }}
-            </div>
-
+        <div class="input">
+            {{ form_row(Boisson.nom, {'attr': {'placeholder': "Gaspacho"}}) }}
+            {{ form_row(Boisson.ingredients, {'attr': {'placeholder': "tomates, poivron rouge, ail ..."}}) }}
+            {{ form_row(Boisson.prix, {'attr': {'placeholder': "10.90"}}) }}
+            {{ form_row(Boisson.brochure)}}
         </div>
-
-        <div>
-            <div>
-                {{ form_start(Boisson) }}
-                {{ form_widget(Boisson) }}
-                <button class="btn">{{ button_label|default('Enregistrer') }}</button>
-                {{ form_end(Boisson) }}
-            </div>
-            <div>
-                <a href="{{ path('app_menu') }}">back</a>
-            </div>
+        <div class="allBtn">
+            {{ form_start(Boisson) }}
+            {{ form_widget(Boisson) }}
+            <button class="btn-valider-modifier">{{ button_label|default('Enregistrer') }}</button>
+            {{ form_end(Boisson) }}
+            <a class="btn-back" href="{{ path('app_menu') }}">back</a>
         </div>
     </div>
 {% endblock %}
