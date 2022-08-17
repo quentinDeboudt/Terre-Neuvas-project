@@ -22,27 +22,31 @@ class EntreeController extends AbstractController
     #[Route('/newEntree', name: 'Entree_new', methods: ['GET', 'POST'])]
     public function new(Request $request, EntreeRepository $entreeRepository, FileUploader $fileUploader): Response
     {
-        $Entree = new Entree();
-        $createEntreeform = $this->createForm(EntreeType::class, $Entree);
-        $createEntreeform->handleRequest($request);
+        if (!$this->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->redirectToRoute('app_accueil');
+        } else {
+            $Entree = new Entree();
+            $createEntreeform = $this->createForm(EntreeType::class, $Entree);
+            $createEntreeform->handleRequest($request);
 
-        if ($createEntreeform->isSubmitted() && $createEntreeform->isValid()) {
+            if ($createEntreeform->isSubmitted() && $createEntreeform->isValid()) {
 
-            //################# image ###################\\
-            /** @var UploadedFile $brochureFile */
-            $brochureFile = $createEntreeform->get('brochure')->getData();
-            if ($brochureFile) {
-                $brochureFileName = $fileUploader->upload($brochureFile);
-                $Entree->setBrochureFilename($brochureFileName);
+                //################# image ###################\\
+                /** @var UploadedFile $brochureFile */
+                $brochureFile = $createEntreeform->get('brochure')->getData();
+                if ($brochureFile) {
+                    $brochureFileName = $fileUploader->upload($brochureFile);
+                    $Entree->setBrochureFilename($brochureFileName);
+                }
+
+                $entreeRepository->add($Entree, true);
+                return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
             }
-
-            $entreeRepository->add($Entree, true);
-            return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
+            return $this->render('entree/newEntree.html.twig', [
+                'entree' => $Entree,
+                'Entree' => $createEntreeform->createView(),
+            ]);
         }
-        return $this->render('entree/newEntree.html.twig', [
-            'entree' => $Entree,
-            'Entree' => $createEntreeform->createView(),
-        ]);
     }
 
 
@@ -50,32 +54,35 @@ class EntreeController extends AbstractController
     #[Route('/{id}/editEntree', name: 'menu_edit_entree', methods: ['GET', 'POST'])]
     public function edit(Request $request, Entree $Entree, EntreeRepository $entreeRepository, FileUploader $fileUploader): Response
     {
+        if (!$this->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->redirectToRoute('app_accueil');
+        } else {
+            $modifierMenuForm = $this->createForm(EntreeType::class, $Entree);
+            $modifierMenuForm->handleRequest($request);
 
-        $modifierMenuForm = $this->createForm(EntreeType::class, $Entree);
-        $modifierMenuForm->handleRequest($request);
+            if ($modifierMenuForm->isSubmitted() && $modifierMenuForm->isValid()) {
 
-        if ($modifierMenuForm->isSubmitted() && $modifierMenuForm->isValid()) {
+                //################# image ###################\\
+                /** @var UploadedFile $brochureFile */
+                $brochureFile = $modifierMenuForm->get('brochure')->getData();
+                if ($brochureFile) {
+                    $brochureFileName = $fileUploader->upload($brochureFile);
+                    $Entree->setBrochureFilename($brochureFileName);
+                }
 
-            //################# image ###################\\
-            /** @var UploadedFile $brochureFile */
-            $brochureFile = $modifierMenuForm->get('brochure')->getData();
-            if ($brochureFile) {
-                $brochureFileName = $fileUploader->upload($brochureFile);
-                $Entree->setBrochureFilename($brochureFileName);
+                $entreeRepository->add($Entree, true);
+                $this->addFlash('success', 'Entrée à été modifié avec succès.');
+                return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
             }
-
-            $entreeRepository->add($Entree, true);
-            $this->addFlash('success', 'Entrée à été modifié avec succès.');
-            return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
+            $brochure =$Entree->getBrochureFilename();
+            $ID = $Entree->getId();
+            return $this->render('entree/editEntree.html.twig', [
+                'ID'=>$ID,
+                'brochure'=>$brochure,
+                'entree' => $Entree,
+                'Entree' => $modifierMenuForm->createView(),
+            ]);
         }
-        $brochure =$Entree->getBrochureFilename();
-        $ID = $Entree->getId();
-        return $this->render('entree/editEntree.html.twig', [
-            'ID'=>$ID,
-            'brochure'=>$brochure,
-            'entree' => $Entree,
-            'Entree' => $modifierMenuForm->createView(),
-        ]);
     }
 
 
@@ -83,11 +90,13 @@ class EntreeController extends AbstractController
     #[Route('/{id}/DeleteEntree', name: 'Entree_delete', methods: ['POST'])]
     public function Delete(Request $request, Entree $entree, EntreeRepository $entreeRepository): Response
     {
-
-
-        if ($this->isCsrfTokenValid('delete'.$entree->getId(), $request->request->get('_token'))) {
-            $entreeRepository->remove($entree, true);
+        if (!$this->isGranted('IS_AUTHENTICATED_FULLY')) {
+            return $this->redirectToRoute('app_accueil');
+        } else {
+            if ($this->isCsrfTokenValid('delete'.$entree->getId(), $request->request->get('_token'))) {
+                $entreeRepository->remove($entree, true);
+            }
+            return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
-        return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
     }
 }
