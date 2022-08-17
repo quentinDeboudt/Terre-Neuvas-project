@@ -66,36 +66,38 @@ nav h2{
     border-bottom: 3px solid #5f650c;
     /*padding: 2px 0;*/
 }
-#prenomParticipant{
-    padding-left: 20px;
+
+
+#BlockProfil{
     background-color: #FFFFFF;
-    width: 100%;
-    height: 20px;
+    width: fit-content;
     display: flex;
-    flex-direction: row;
+    border-radius: 40px;
+    position: absolute;
+    right: 10px;
+    margin: 5px;
 }
-#name_login{
-    margin: 0;
-    padding: 0;
-}
-#separator{
-    margin: 0;
-    padding: 0;
-    color: black;
-    font-size: 15px;
-    margin-left: 20px;
-    margin-right: 20px;
-}
-#logout{
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    color: black;
-    height: 10px;
+#BlockProfil div{
 
 }
+#img-profil{
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    margin: 2px;
+}
+#name_login{
+    margin-left: 25px;
+    margin-bottom: 6px;
+}
+#logout{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    margin-left: 25px;
+}
 #logout:hover{
-    color: #aeb70d ;
+    color: #999999 ;
 }
 
 /*########################################################################*/

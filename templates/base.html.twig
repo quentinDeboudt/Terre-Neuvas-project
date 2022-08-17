@@ -23,26 +23,29 @@
                     <a id="title" href="{{path('app_accueil')}}"> <h2> Poké-p'</h2></a>
 
                     <li>
-                        <a class="link-nav-bar" href="{{path('app_afficher_menu')}}" title="Cart/Menu">Menu</a>
+                        <a class="link-nav-bar" href="{{path('app_accueil')}}" title="Accueil">Accueil</a>
                     </li>
                     <li>
-                        <a class="link-nav-bar" href="{{path('app_accueil')}}" title="Contact">Contact</a>
+                        <a class="link-nav-bar" href="{{path('app_afficher_menu')}}" title="Cart/Menu">Menu</a>
                     </li>
+
                     {% if app.user%}
                     <li>
                         <a class="link-nav-bar" href="{{path('app_menu')}}" title="Menu">Modifier le Menu</a>
                     </li>
                     {% endif %}
-                </ul>
+
 
                 {% if app.user%}
-                    <div id="prenomParticipant">
-                        <p id="name_login">{{app.user.username}}</p>
-                        <p id="separator">|</p>
-                        <a id="logout" href="{{path('app_logout')}}">Déconection</a>
+                    <div id="BlockProfil">
+                        <div>
+                            <p id="name_login">{{app.user.username}}</p>
+                            <a id="logout" href="{{path('app_logout')}}">Déconection</a>
+                        </div>
+                        <img src="{{ asset('img/images-profil.png')}}" alt="profil" id="img-profil">
                     </div>
                 {% endif %}
-
+                </ul>
 
             </nav>
         {% endblock %}
