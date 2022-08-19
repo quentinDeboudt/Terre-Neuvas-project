@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use function PHPUnit\Framework\fileExists;
 
 #[Route('/menu')]
 class EntreeController extends AbstractController
@@ -88,13 +89,29 @@ class EntreeController extends AbstractController
 
 ///////////////////////////////////////////////...Delete...\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     #[Route('/{id}/DeleteEntree', name: 'Entree_delete', methods: ['POST'])]
-    public function Delete(Request $request, Entree $entree, EntreeRepository $entreeRepository): Response
+    public function Delete(Request $request, Entree $entree, EntreeRepository $entreeRepository, FileUploader $fileUploader): Response
     {
         if (!$this->isGranted('IS_AUTHENTICATED_FULLY')) {
             return $this->redirectToRoute('app_accueil');
         } else {
             if ($this->isCsrfTokenValid('delete'.$entree->getId(), $request->request->get('_token'))) {
                 $entreeRepository->remove($entree, true);
+
+                $brochureFile = $entree->getBrochureFilename();
+                $brochureFile->remove(
+                    $this->getParameter("brochures_directory"), $this->getParameter("brochures_directory"). '/' . $brochureFile
+                );
+
+
+//                //##########image##################
+//                $brochureFile = $entree->getBrochureFilename();
+//                if ($brochureFile){
+//                    $brochureFileName = $this->getParameter("brochures_directory"). '/' . $brochureFile;
+//
+//                    if (fileExists($brochureFileName)){
+//                        unlink($brochureFile);
+//                    }
+//                }
             }
             return $this->redirectToRoute('app_menu', [], Response::HTTP_SEE_OTHER);
         }
